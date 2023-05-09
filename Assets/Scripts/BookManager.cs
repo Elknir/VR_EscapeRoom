@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,9 +13,19 @@ public class BookManager : MonoBehaviour
     public int startingPage = 0;
     
     private int currentPage;
-    private AnimState currentAnimState = AnimState.CloseStart;
-        
-    enum AnimState
+    private BookState currentBookState = BookState.CloseStart;
+
+    [Header("Book Meshes")] 
+    public GameObject bookCloseLeft;
+    public GameObject bookOpenLeft;
+    public GameObject bookMiddle;
+    public GameObject bookOpenRight;
+    public GameObject bookCloseRight;
+    private GameObject[] books = new GameObject[5];
+
+    
+
+    enum BookState
     {
         CloseStart,
         OpenStart,
@@ -29,11 +40,29 @@ public class BookManager : MonoBehaviour
         Right,
         None,
     };
+    
+    
 
     private void Awake()
     {
         currentPage = startingPage;
         UpdatePage(Sides.None);
+
+        books[0] = bookCloseLeft;
+        books[1] = bookOpenLeft;
+        books[2] = bookMiddle;
+        books[3] = bookOpenRight;
+        books[4] = bookCloseRight;
+
+        int i = 0;
+        foreach (var bookGo in books)
+        {
+            GameObject go = Instantiate(bookGo, transform.position, transform.rotation, transform) ;
+            go.SetActive(false);
+            books[i] = go;
+            i++;
+        }
+
     }
 
     void Update()
@@ -55,7 +84,7 @@ public class BookManager : MonoBehaviour
         switch (turnSide)
         {
             case Sides.Left:
-                if (currentAnimState != AnimState.CloseStart)
+                if (currentBookState != BookState.CloseStart)
                 {
                     currentPage--;
                 }
@@ -63,7 +92,7 @@ public class BookManager : MonoBehaviour
                 break;
             
             case Sides.Right:
-                if (currentAnimState != AnimState.CloseEnd)
+                if (currentBookState != BookState.CloseEnd)
                 {
                     currentPage++;
                 }
@@ -77,33 +106,43 @@ public class BookManager : MonoBehaviour
         // TODO : search for switch alternative 
         if (currentPage == 0)
         {
-            currentAnimState = AnimState.CloseStart;
+            SetBookState(BookState.CloseStart);
+
         }
         else if (currentPage == 1)
         {
-            currentAnimState = AnimState.OpenStart;
+            SetBookState(BookState.OpenStart);
+
         }
         else if (currentPage == pages.Length - 1)
         {
-            currentAnimState = AnimState.OpenEnd;
+            SetBookState(BookState.OpenEnd);
+
         }
         else if(currentPage == pages.Length)
         {
-            currentAnimState = AnimState.CloseEnd;
+            SetBookState(BookState.CloseEnd);
         }
         else
         {
-            currentAnimState = AnimState.Middle;
+            SetBookState(BookState.Middle);
         }
         
-        DebugPage();
+        // DebugPage();
+    }
+
+    void SetBookState(BookState newBookState)
+    {
+        if(currentBookState == newBookState) return;
+        
+        books[(int)currentBookState].SetActive(false);
+        currentBookState = newBookState;
+        books[(int)currentBookState].SetActive(true);
     }
 
     void DebugPage()
     {
-        Debug.Log(currentPage);
-        Debug.Log(currentAnimState);
-
+        Debug.Log($"Current page : {currentPage} , {currentBookState}" );
     }
     
 }
