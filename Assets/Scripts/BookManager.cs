@@ -7,21 +7,16 @@ using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
-    
+    public GameObject cover;
     public GameObject[] pages;
     // public float speedTurn;
     public int startingPage = 0;
+    public float offsetBetweenPages = 0.1f;
     
     private int currentPage;
     private BookState currentBookState = BookState.CloseStart;
 
-    [Header("Book Meshes")] 
-    public GameObject bookCloseLeft;
-    public GameObject bookOpenLeft;
-    public GameObject bookMiddle;
-    public GameObject bookOpenRight;
-    public GameObject bookCloseRight;
-    private GameObject[] books = new GameObject[5];
+
 
     
 
@@ -34,11 +29,10 @@ public class BookManager : MonoBehaviour
         CloseEnd,
     };
 
-    enum Sides
+    public enum Sides
     {
         Left,
         Right,
-        None,
     };
     
     
@@ -46,23 +40,14 @@ public class BookManager : MonoBehaviour
     private void Awake()
     {
         currentPage = startingPage;
-        UpdatePage(Sides.None);
 
-        books[0] = bookCloseLeft;
-        books[1] = bookOpenLeft;
-        books[2] = bookMiddle;
-        books[3] = bookOpenRight;
-        books[4] = bookCloseRight;
-
-        int i = 0;
-        foreach (var bookGo in books)
+        float i = 1;
+        foreach (GameObject page in pages)
         {
-            GameObject go = Instantiate(bookGo, transform.position, transform.rotation, transform) ;
-            go.SetActive(false);
-            books[i] = go;
+            page.transform.localPosition = new Vector3(0, page.transform.localPosition.y + offsetBetweenPages * i , 0);
             i++;
         }
-
+        cover.transform.localPosition = new Vector3(0, cover.transform.localPosition.y + offsetBetweenPages * i, 0);
     }
 
     void Update()
@@ -98,8 +83,7 @@ public class BookManager : MonoBehaviour
                 }
                 break;
             
-            case Sides.None:
-                break;
+   
         }
         
         
@@ -107,17 +91,17 @@ public class BookManager : MonoBehaviour
         if (currentPage == 0)
         {
             SetBookState(BookState.CloseStart);
-
+        
         }
         else if (currentPage == 1)
         {
             SetBookState(BookState.OpenStart);
-
+        
         }
         else if (currentPage == pages.Length - 1)
         {
             SetBookState(BookState.OpenEnd);
-
+        
         }
         else if(currentPage == pages.Length)
         {
@@ -128,16 +112,12 @@ public class BookManager : MonoBehaviour
             SetBookState(BookState.Middle);
         }
         
-        // DebugPage();
     }
 
     void SetBookState(BookState newBookState)
     {
-        if(currentBookState == newBookState) return;
-        
-        books[(int)currentBookState].SetActive(false);
+        // if(currentBookState == newBookState) return;
         currentBookState = newBookState;
-        books[(int)currentBookState].SetActive(true);
     }
 
     void DebugPage()
