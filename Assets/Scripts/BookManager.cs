@@ -1,20 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
     public GameObject cover;
     public GameObject[] pages;
-    // public float speedTurn;
-    public int startingPage = 0;
+    public float turnSpeed = 100;
+    private int startingPage;
     public float offsetBetweenPages = 0.1f;
     
     private int currentPage;
-    private BookState currentBookState = BookState.CloseStart;
+    private BookState currentBookState = BookState.Start;
 
 
 
@@ -22,11 +17,9 @@ public class BookManager : MonoBehaviour
 
     enum BookState
     {
-        CloseStart,
-        OpenStart,
+        Start,
         Middle,
-        OpenEnd,
-        CloseEnd,
+        End,
     };
 
     public enum Sides
@@ -65,21 +58,66 @@ public class BookManager : MonoBehaviour
 
     void UpdatePage(Sides turnSide)
     {
-        //check a faire
         switch (turnSide)
         {
             case Sides.Left:
-                if (currentBookState != BookState.CloseStart)
+                
+                
+                
+                if (currentBookState != BookState.Start)
                 {
+                    cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+
+
+                    if (currentPage > 1)
+                    {
+                        pages[currentPage - 2].GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                    }
+                    
                     currentPage--;
                 }
+                else
+                {
+                    // C est pas bon avec la cover a check apres
+                    cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
+                    foreach (GameObject page in pages)
+                    {
+                        page.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
+                    }
 
+                    currentPage = pages.Length+ 1;
+                }
+
+                
                 break;
             
             case Sides.Right:
-                if (currentBookState != BookState.CloseEnd)
+                
+                if (currentBookState != BookState.End)
                 {
+                    if (currentPage == 0)
+                    {
+                        cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                    }
+
+                    if (currentPage > 0)
+                    {
+                        pages[currentPage - 1].GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                    }
+                    
                     currentPage++;
+                }
+                else
+                {
+                    // faire en sorte que toutes les pages tournent quand on est au debut/fin
+
+                    cover.GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * 1.3f);
+                    foreach (GameObject page in pages)
+                    {
+                        page.GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * 1.3f);
+                    }
+
+                    currentPage = 0;
                 }
                 break;
             
@@ -87,31 +125,28 @@ public class BookManager : MonoBehaviour
         }
         
         
+
+
+        
+
+        
         // TODO : search for switch alternative 
         if (currentPage == 0)
         {
-            SetBookState(BookState.CloseStart);
-        
+            SetBookState(BookState.Start);
         }
-        else if (currentPage == 1)
+        else if(currentPage == pages.Length + 1)
         {
-            SetBookState(BookState.OpenStart);
-        
-        }
-        else if (currentPage == pages.Length - 1)
-        {
-            SetBookState(BookState.OpenEnd);
-        
-        }
-        else if(currentPage == pages.Length)
-        {
-            SetBookState(BookState.CloseEnd);
+            SetBookState(BookState.End);
         }
         else
         {
             SetBookState(BookState.Middle);
         }
-        
+
+
+        DebugPage();
+
     }
 
     void SetBookState(BookState newBookState)

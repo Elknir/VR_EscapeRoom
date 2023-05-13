@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,39 +8,85 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PagePhysics : MonoBehaviour
 {
-    
+    private Rigidbody pageRigidbody;
     private HingeJoint turningHinge;
-    public int openSpeed = 100;
+    private bool isArrived;
     void Start()
     {
         turningHinge = GetComponent<HingeJoint>();
-        turningHinge.useMotor = true;
+        pageRigidbody = GetComponent<Rigidbody>();
+        isArrived = false;
+        EnableMovement(false);
         SetTargetVelocity(0);
     }
 
-    public void OpenBook(BookManager.Sides side)
+
+    public void Update()
     {
+        if (!isArrived)
+        {
+            HasArrived();
+        }
+        
+        if (isArrived && turningHinge.useMotor)
+        {
+            EnableMovement(false);
+        }
+        
+
+    }
+
+
+    public void TurnPage(BookManager.Sides side , float openSpeed)
+    {
+        
         
         switch (side)
         {
             case BookManager.Sides.Left:
-                SetTargetVelocity(openSpeed);
+                EnableMovement(true);
+                SetTargetVelocity(-openSpeed);
                 break;
             
             case BookManager.Sides.Right:
-                SetTargetVelocity(-openSpeed);
+                EnableMovement(true);
+                SetTargetVelocity(openSpeed);
                 break;
         }
 
     }
 
-    private void SetTargetVelocity(int velocity)
+    private void SetTargetVelocity(float velocity)
     {
         JointMotor myMotor = turningHinge.motor;
         myMotor.targetVelocity = velocity;
         turningHinge.motor = myMotor;
     }
 
-    
-    
+    private void EnableMovement(bool activation)
+    {
+        isArrived = false;
+        pageRigidbody.isKinematic = !activation;
+        turningHinge.useMotor = activation;
+    }
+
+
+    private void HasArrived()
+    {
+        if (turningHinge.motor.targetVelocity > 0)
+        {
+            if (turningHinge.angle >= turningHinge.limits.max - 1)
+            {
+                isArrived = true;
+            }
+        }
+        else if (turningHinge.motor.targetVelocity < 0)
+        {
+            if (turningHinge.angle <= turningHinge.limits.min + 1)
+            {
+                isArrived = true;
+            }
+        }
+    }
+
 }
