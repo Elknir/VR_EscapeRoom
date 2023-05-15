@@ -11,10 +11,6 @@ public class BookManager : MonoBehaviour
     private int currentPage;
     private BookState currentBookState = BookState.Start;
 
-
-
-    
-
     enum BookState
     {
         Start,
@@ -28,8 +24,6 @@ public class BookManager : MonoBehaviour
         Right,
     };
     
-    
-
     private void Awake()
     {
         currentPage = startingPage;
@@ -66,9 +60,12 @@ public class BookManager : MonoBehaviour
                 
                 if (currentBookState != BookState.Start)
                 {
-                    cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
-
-
+                    if (currentPage == 1)
+                    {
+                        cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                    
+                    }
+                    
                     if (currentPage > 1)
                     {
                         pages[currentPage - 2].GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
@@ -78,8 +75,8 @@ public class BookManager : MonoBehaviour
                 }
                 else
                 {
-                    // C est pas bon avec la cover a check apres
                     cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
+
                     foreach (GameObject page in pages)
                     {
                         page.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
@@ -120,17 +117,9 @@ public class BookManager : MonoBehaviour
                     currentPage = 0;
                 }
                 break;
-            
-   
         }
         
         
-
-
-        
-
-        
-        // TODO : search for switch alternative 
         if (currentPage == 0)
         {
             SetBookState(BookState.Start);
@@ -144,9 +133,7 @@ public class BookManager : MonoBehaviour
             SetBookState(BookState.Middle);
         }
 
-
-        DebugPage();
-
+        // DebugPage();
     }
 
     void SetBookState(BookState newBookState)
