@@ -28,13 +28,13 @@ public class BookManager : MonoBehaviour
     {
         currentPage = startingPage;
 
-        float i = 1;
-        foreach (GameObject page in pages)
-        {
-            page.transform.localPosition = new Vector3(0, page.transform.localPosition.y + offsetBetweenPages * i , 0);
-            i++;
-        }
-        cover.transform.localPosition = new Vector3(0, cover.transform.localPosition.y + offsetBetweenPages * i, 0);
+        // float i = 1;
+        // foreach (GameObject page in pages)
+        // {
+        //     page.transform.localPosition = new Vector3(0, page.transform.localPosition.y + offsetBetweenPages * i , 0);
+        //     i++;
+        // }
+        // cover.transform.localPosition = new Vector3(0, cover.transform.localPosition.y + offsetBetweenPages * i, 0);
     }
 
     void Update()
@@ -56,8 +56,6 @@ public class BookManager : MonoBehaviour
         {
             case Sides.Left:
                 
-                
-                
                 if (currentBookState != BookState.Start)
                 {
                     if (currentPage == 1)
@@ -75,6 +73,9 @@ public class BookManager : MonoBehaviour
                 }
                 else
                 {
+                    if(!cover.GetComponent<PagePhysics>().isArrived) return;
+
+                    
                     cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
 
                     foreach (GameObject page in pages)
@@ -106,8 +107,10 @@ public class BookManager : MonoBehaviour
                 }
                 else
                 {
+                    if(!pages[pages.Length - 1].GetComponent<PagePhysics>().isArrived) return;
                     // faire en sorte que toutes les pages tournent quand on est au debut/fin
 
+                    
                     cover.GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * 1.3f);
                     foreach (GameObject page in pages)
                     {

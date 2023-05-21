@@ -10,14 +10,15 @@ public class PagePhysics : MonoBehaviour
 {
     private Rigidbody pageRigidbody;
     private HingeJoint turningHinge;
-    private bool isArrived;
+    [HideInInspector]
+    public bool isArrived;
     void Start()
     {
         turningHinge = GetComponent<HingeJoint>();
         pageRigidbody = GetComponent<Rigidbody>();
-        isArrived = false;
         EnableMovement(false);
         SetTargetVelocity(0);
+        isArrived = true;
     }
 
 
