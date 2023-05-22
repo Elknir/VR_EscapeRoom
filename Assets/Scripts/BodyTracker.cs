@@ -8,24 +8,23 @@ using UnityEngine.XR;
 
 public class BodyTracker : MonoBehaviour
 {
-    public Camera head;
+    public GameObject head;
+    // public Transform BookAttachPos;
+    // public GameObject Book;
     void Awake()
     {
-        
-
+        // this.Book.transform.position = BookAttachPos.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Chopper la pos du casque via system input
-        head = Camera.main;
         this.transform.position = new Vector3(head.transform.position.x, head.transform.position.y - 0.5f, head.transform.position.z);
-        Debug.Log(head.transform.localRotation.y * Mathf.Rad2Deg *2 );
-        this.transform.rotation = Quaternion.Euler(0, head.transform.rotation.y * Mathf.Rad2Deg *2,0);
-// l'appliquer en perma sur le body avec un offset
+        
+        this.transform.rotation = Quaternion.Euler(0, head.transform.localEulerAngles.y ,0);
 
-
+        
     }
 
 

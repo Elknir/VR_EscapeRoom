@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class BookManager : MonoBehaviour
 {
@@ -6,11 +9,14 @@ public class BookManager : MonoBehaviour
     public GameObject[] pages;
     public float turnSpeed = 100;
     private int startingPage;
-    public float offsetBetweenPages = 0.1f;
     
     private int currentPage;
     private BookState currentBookState = BookState.Start;
 
+    private bool isHeld = false;
+    
+    
+    
     enum BookState
     {
         Start,
@@ -27,14 +33,6 @@ public class BookManager : MonoBehaviour
     private void Awake()
     {
         currentPage = startingPage;
-
-        // float i = 1;
-        // foreach (GameObject page in pages)
-        // {
-        //     page.transform.localPosition = new Vector3(0, page.transform.localPosition.y + offsetBetweenPages * i , 0);
-        //     i++;
-        // }
-        // cover.transform.localPosition = new Vector3(0, cover.transform.localPosition.y + offsetBetweenPages * i, 0);
     }
 
     void Update()
@@ -43,6 +41,7 @@ public class BookManager : MonoBehaviour
         {
             UpdatePage(Sides.Left);
         }
+        
         
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -148,6 +147,25 @@ public class BookManager : MonoBehaviour
     void DebugPage()
     {
         Debug.Log($"Current page : {currentPage} , {currentBookState}" );
+    }
+
+
+    public void HoldingBook()
+    {
+        isHeld = true;
+    }
+    
+    public void DropingBook()
+    {
+        isHeld = false;
+    }
+
+    public void UseBook()
+    {
+        if (isHeld)
+        {
+            UpdatePage(Sides.Right);
+        }
     }
     
 }
