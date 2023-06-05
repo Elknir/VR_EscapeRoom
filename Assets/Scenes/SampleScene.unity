@@ -2815,6 +2815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1476463086}
+  book: {fileID: 1412873594}
 --- !u!1 &1024211589
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,6 +3137,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1412873594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8679507241697922080, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+  m_PrefabInstance: {fileID: 3746767970506619381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476463086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,7 +3466,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6894543175310681278, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
   m_PrefabInstance: {fileID: 3746767970506619381}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1412873594}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eac02fe0752f574092382ed3f58b885, type: 3}
@@ -3996,7 +4002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
@@ -4015,6 +4021,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -4026,6 +4036,10 @@ PrefabInstance:
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1595276909}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1006967554}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseBook
@@ -4039,12 +4053,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DropingBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetBookPos
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4059,6 +4081,10 @@ PrefabInstance:
       value: BookManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BodyTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BookManager, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -4068,6 +4094,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3746767970506619383, guid: 9745e60735fe9554aa970333f8a8dc3c, type: 3}

@@ -8,6 +8,8 @@ public class BookManager : MonoBehaviour
     public GameObject cover;
     public GameObject[] pages;
     public float turnSpeed = 100;
+    public float closeSpeedMultiplier = 1.3f;
+    private float pocketSpeedMultiplier = 6f;
     private int startingPage;
     
     private int currentPage;
@@ -72,17 +74,9 @@ public class BookManager : MonoBehaviour
                 }
                 else
                 {
-                    if(!cover.GetComponent<PagePhysics>().isArrived) return;
-
+                 
                     
-                    cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
-
-                    foreach (GameObject page in pages)
-                    {
-                        page.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * 1.3f);
-                    }
-
-                    currentPage = pages.Length+ 1;
+                    CloseBook(Sides.Left);
                 }
 
                 
@@ -106,17 +100,7 @@ public class BookManager : MonoBehaviour
                 }
                 else
                 {
-                    if(!pages[pages.Length - 1].GetComponent<PagePhysics>().isArrived) return;
-                    // faire en sorte que toutes les pages tournent quand on est au debut/fin
-
-                    
-                    cover.GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * 1.3f);
-                    foreach (GameObject page in pages)
-                    {
-                        page.GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * 1.3f);
-                    }
-
-                    currentPage = 0;
+                    CloseBook(Sides.Right);
                 }
                 break;
         }
@@ -153,11 +137,18 @@ public class BookManager : MonoBehaviour
     public void HoldingBook()
     {
         isHeld = true;
+
+        if (currentPage != 0)
+        {
+            GoToPage(currentPage);
+        }
     }
     
     public void DropingBook()
     {
         isHeld = false;
+        //le fermer 
+        CloseBook(Sides.Right, true);
     }
 
     public void UseBook()
@@ -165,6 +156,41 @@ public class BookManager : MonoBehaviour
         if (isHeld)
         {
             UpdatePage(Sides.Right);
+        }
+    }
+
+    private void CloseBook(Sides closeSide, bool registerCurrentPage = false)
+    {
+        Sides inverseSide = closeSide == Sides.Right? Sides.Left : Sides.Right;
+        if (closeSide == Sides.Right)
+        {
+            if(!pages[pages.Length - 1].GetComponent<PagePhysics>().isArrived) return;
+            
+            if(!registerCurrentPage) currentPage = 0;
+        }
+        else
+        {
+            if(!cover.GetComponent<PagePhysics>().isArrived) return;
+            
+            if(!registerCurrentPage) currentPage = pages.Length+ 1;
+        }
+        
+        float turnSpeedMultiplier = registerCurrentPage ? pocketSpeedMultiplier : closeSpeedMultiplier;
+        cover.GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+        foreach (GameObject page in pages)
+        {
+            page.GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+        }
+    }
+ private void GoToPage(int targetPage)
+    {
+        cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed *pocketSpeedMultiplier);
+        Debug.Log(targetPage);
+
+        //ptt - 2
+        for (int i = 0; i < targetPage - 1; i++)
+        {
+            pages[targetPage].GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * pocketSpeedMultiplier);
         }
     }
     
