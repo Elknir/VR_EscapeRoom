@@ -17,6 +17,9 @@ public class BookManager : MonoBehaviour
 
     private bool isHeld = false;
     
+    [Range(0, 4)] public int availablePages = 3; 
+
+    
     enum BookState
     {
         Start,
@@ -33,6 +36,14 @@ public class BookManager : MonoBehaviour
     private void Awake()
     {
         currentPage = startingPage;
+        
+        for (int i = 0; i < pages.Length; i++)
+        {
+            if (i > availablePages - 1)
+            {
+                pages[i].SetActive(false);
+            }
+        } 
     }
 
     void Update()
@@ -108,7 +119,7 @@ public class BookManager : MonoBehaviour
         {
             SetBookState(BookState.Start);
         }
-        else if(currentPage == pages.Length + 1)
+        else if(currentPage == availablePages + 1)
         {
             SetBookState(BookState.End);
         }
@@ -161,7 +172,7 @@ public class BookManager : MonoBehaviour
         Sides inverseSide = closeSide == Sides.Right? Sides.Left : Sides.Right;
         if (closeSide == Sides.Right)
         {
-            if(!pages[pages.Length - 1].GetComponent<PagePhysics>().isArrived) return;
+            if(!pages[availablePages - 1].GetComponent<PagePhysics>().isArrived) return;
             
             if(!registerCurrentPage) currentPage = 0;
         }
@@ -169,17 +180,18 @@ public class BookManager : MonoBehaviour
         {
             if(!cover.GetComponent<PagePhysics>().isArrived) return;
             
-            if(!registerCurrentPage) currentPage = pages.Length+ 1;
+            if(!registerCurrentPage) currentPage = availablePages + 1;
         }
         
         float turnSpeedMultiplier = registerCurrentPage ? pocketSpeedMultiplier : closeSpeedMultiplier;
         cover.GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
-        foreach (GameObject page in pages)
+        
+        for (int i = 0; i < availablePages; i++)
         {
-            page.GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+            pages[i].GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
         }
     }
- private void GoToPage(int targetPage)
+    private void GoToPage(int targetPage)
     {
         cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed *pocketSpeedMultiplier);
 
@@ -187,7 +199,18 @@ public class BookManager : MonoBehaviour
         {
             pages[i].GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * pocketSpeedMultiplier);
         }
-        
+    }
+    
+    public void RevealPage()
+    {
+        pages[availablePages].SetActive(true);
+        availablePages++;
+    }
+
+    public void RevealPageVariant(int targetPage)
+    {
+        // have a variant here and activate it 
+        // targetPage - 1
     }
     
 }
