@@ -7,8 +7,8 @@ public class BookManager : MonoBehaviour
 {
     public GameObject cover;
     public GameObject[] pages;
-    public float turnSpeed = 100;
-    public float closeSpeedMultiplier = 1.3f;
+    [Range(100, 600)] public float turnSpeed = 100;
+    [Range(0.1f, 3f)]public float closeSpeedMultiplier = 1.3f;
     private float pocketSpeedMultiplier = 6f;
     private int startingPage;
     
@@ -17,15 +17,13 @@ public class BookManager : MonoBehaviour
 
     private bool isHeld = false;
     
-    
-    
     enum BookState
     {
         Start,
         Middle,
         End,
     };
-
+    
     public enum Sides
     {
         Left,
@@ -147,7 +145,6 @@ public class BookManager : MonoBehaviour
     public void DropingBook()
     {
         isHeld = false;
-        //le fermer 
         CloseBook(Sides.Right, true);
     }
 
@@ -185,13 +182,12 @@ public class BookManager : MonoBehaviour
  private void GoToPage(int targetPage)
     {
         cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed *pocketSpeedMultiplier);
-        Debug.Log(targetPage);
 
-        //ptt - 2
         for (int i = 0; i < targetPage - 1; i++)
         {
-            pages[targetPage].GetComponent<PagePhysics>().TurnPage(Sides.Left, turnSpeed * pocketSpeedMultiplier);
+            pages[i].GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * pocketSpeedMultiplier);
         }
+        
     }
     
 }
