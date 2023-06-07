@@ -10,7 +10,7 @@ public class ContainerBehaviour : PotionBehaviour
     private Vector3 collisionPoint;
     
 
-    protected override void  Awake()
+    protected override void Awake()
     {
         base.Awake();
         colliderTop = top.GetComponent<Collider>();
@@ -23,7 +23,7 @@ public class ContainerBehaviour : PotionBehaviour
         collisionPoint = colliderTop.ClosestPoint(bot.transform.position);
         potionParticleObject.transform.position = collisionPoint;
         
-        // TODO : un offset
+        // TODO : faire un offset
         // potionParticleObject.transform.localPosition -= new Vector3(0, 0.05f, 0);
 
         var distanceFromCenter = Vector3.Distance(transform.position, collisionPoint);

@@ -1,10 +1,9 @@
 using UnityEngine;
 
 
-public class PotionBehaviour : MonoBehaviour
+public class PotionBehaviour : GrabableObjects
 {
     public GameObject top, bot;
-    protected bool isHeld = false;
     protected bool isActive = false;
     public GameObject potionParticleObject;
     private ParticleSystem potionParticleSystem;
@@ -33,18 +32,15 @@ public class PotionBehaviour : MonoBehaviour
             ParticleEnable(false);
         }
     }
-    
-    
-    public void PotionHeld()
+
+
+    public override void DropItem()
     {
-        isHeld = true;
-    }
-    
-    public void PotionDrop()
-    {
-        isHeld = false;
+        base.DropItem();
         ParticleEnable(false);
     }
+
+
 
     protected void ParticleEnable(bool enable)
     {

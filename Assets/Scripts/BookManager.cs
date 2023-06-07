@@ -1,23 +1,21 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
-public class BookManager : MonoBehaviour
+
+public class BookManager : GrabableObjects
 {
+    [Header("Pages Setup")]
     public GameObject cover;
     public GameObject[] pages;
+    [Range(0, 4)] public int availablePages = 3; 
+
+    [Header("Pages Speed")]
     [Range(100, 600)] public float turnSpeed = 100;
     [Range(0.1f, 3f)]public float closeSpeedMultiplier = 1.3f;
-    private float pocketSpeedMultiplier = 6f;
-    private int startingPage;
+    readonly float pocketSpeedMultiplier = 10f;
     
-    private int currentPage;
+    private int currentPage = 0;
     private BookState currentBookState = BookState.Start;
 
-    private bool isHeld = false;
-    
-    [Range(0, 4)] public int availablePages = 3; 
 
     
     enum BookState
@@ -35,8 +33,6 @@ public class BookManager : MonoBehaviour
     
     private void Awake()
     {
-        currentPage = startingPage;
-        
         for (int i = 0; i < pages.Length; i++)
         {
             if (i > availablePages - 1)
@@ -142,25 +138,24 @@ public class BookManager : MonoBehaviour
         Debug.Log($"Current page : {currentPage} , {currentBookState}" );
     }
 
-
-    public void HoldingBook()
+    public override void HoldItem()
     {
-        isHeld = true;
-
+        base.HoldItem();
         if (currentPage != 0)
         {
             GoToPage(currentPage);
         }
     }
-    
-    public void DropingBook()
+
+    public override void DropItem()
     {
-        isHeld = false;
+        base.DropItem();
         CloseBook(Sides.Right, true);
     }
 
-    public void UseBook()
+    public override void UseItem()
     {
+        base.UseItem();
         if (isHeld)
         {
             UpdatePage(Sides.Right);
@@ -201,6 +196,8 @@ public class BookManager : MonoBehaviour
         }
     }
     
+    
+    // TODO : Reveal book pages 
     public void RevealPage()
     {
         pages[availablePages].SetActive(true);
