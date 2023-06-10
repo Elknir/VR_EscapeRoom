@@ -1,6 +1,4 @@
 using UnityEngine;
-
-
 public class PotionBehaviour : GrabableObjects
 {
     public GameObject top, bot;
