@@ -4,12 +4,19 @@ using UnityEngine;
 public class BookManager : GrabableObjects
 {
     [Header("Pages Setup")]
-    public GameObject cover;
+    
+    public GameObject cover, reliure;
+    
+    
+    private PagePhysics coverPhysics, reliurePhysics;
+    private PagePhysics[] targetPagePhysics;
+
     public GameObject[] pages;
     [Range(0, 4)] public int availablePages = 3; 
 
     [Header("Pages Speed")]
     [Range(100, 600)] public float turnSpeed = 100;
+    [Range(50, 200)] public float reliureTurnSpeed = 100;
     [Range(0.1f, 3f)]public float closeSpeedMultiplier = 1.3f;
     readonly float pocketSpeedMultiplier = 10f;
     
@@ -33,13 +40,20 @@ public class BookManager : GrabableObjects
     
     private void Awake()
     {
+        targetPagePhysics = new PagePhysics[pages.Length];
         for (int i = 0; i < pages.Length; i++)
         {
+            targetPagePhysics[i] = pages[i].GetComponent<PagePhysics>();
+            
             if (i > availablePages - 1)
             {
                 pages[i].SetActive(false);
             }
         } 
+        
+        
+        coverPhysics = cover.GetComponent<PagePhysics>();
+        reliurePhysics = reliure.GetComponent<PagePhysics>();
     }
 
     void Update()
@@ -66,13 +80,13 @@ public class BookManager : GrabableObjects
                 {
                     if (currentPage == 1)
                     {
-                        cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
-                    
+                        coverPhysics.TurnPage(turnSide, turnSpeed);
+                        reliurePhysics.TurnPage(turnSide, reliureTurnSpeed);
                     }
                     
                     if (currentPage > 1)
                     {
-                        pages[currentPage - 2].GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                        targetPagePhysics[currentPage - 2].TurnPage(turnSide, turnSpeed);
                     }
                     
                     currentPage--;
@@ -93,12 +107,13 @@ public class BookManager : GrabableObjects
                 {
                     if (currentPage == 0)
                     {
-                        cover.GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                        coverPhysics.TurnPage(turnSide, turnSpeed);
+                        reliurePhysics.TurnPage(turnSide, reliureTurnSpeed);
                     }
 
                     if (currentPage > 0)
                     {
-                        pages[currentPage - 1].GetComponent<PagePhysics>().TurnPage(turnSide, turnSpeed);
+                        targetPagePhysics[currentPage - 1].TurnPage(turnSide, turnSpeed);
                     }
                     
                     currentPage++;
@@ -167,32 +182,34 @@ public class BookManager : GrabableObjects
         Sides inverseSide = closeSide == Sides.Right? Sides.Left : Sides.Right;
         if (closeSide == Sides.Right)
         {
-            if(!pages[availablePages - 1].GetComponent<PagePhysics>().isArrived) return;
+            if(!targetPagePhysics[availablePages - 1].isArrived) return;
             
             if(!registerCurrentPage) currentPage = 0;
         }
         else
         {
-            if(!cover.GetComponent<PagePhysics>().isArrived) return;
+            if(!coverPhysics.isArrived) return;
             
             if(!registerCurrentPage) currentPage = availablePages + 1;
         }
         
         float turnSpeedMultiplier = registerCurrentPage ? pocketSpeedMultiplier : closeSpeedMultiplier;
-        cover.GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+        coverPhysics.TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+        reliurePhysics.TurnPage(inverseSide, reliureTurnSpeed * turnSpeedMultiplier);
         
         for (int i = 0; i < availablePages; i++)
         {
-            pages[i].GetComponent<PagePhysics>().TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
+            targetPagePhysics[i].TurnPage(inverseSide, turnSpeed * turnSpeedMultiplier);
         }
     }
     private void GoToPage(int targetPage)
     {
-        cover.GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed *pocketSpeedMultiplier);
-
+        coverPhysics.TurnPage(Sides.Right, turnSpeed *pocketSpeedMultiplier);
+        reliurePhysics.TurnPage(Sides.Right, reliureTurnSpeed *pocketSpeedMultiplier);
+        
         for (int i = 0; i < targetPage - 1; i++)
         {
-            pages[i].GetComponent<PagePhysics>().TurnPage(Sides.Right, turnSpeed * pocketSpeedMultiplier);
+            targetPagePhysics[i].TurnPage(Sides.Right, turnSpeed * pocketSpeedMultiplier);
         }
     }
     
