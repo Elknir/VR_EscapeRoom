@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 }
 
 [CustomEditor(typeof(GameManager))]
-public class EnemyEditor : Editor
+public class CheatEditor : Editor
 {
     public override void OnInspectorGUI()
     {
