@@ -6,6 +6,7 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
     public bool cheatTaquin, cheatPotion, cheatCandles, cheatPowder, cheatDance;
 
     public void Start()
@@ -68,6 +69,7 @@ public class EnemyEditor : Editor
     public override void OnInspectorGUI()
     {
         GameManager container = (GameManager)target;
+        base.OnInspectorGUI();
 
         EditorGUI.BeginDisabledGroup(Application.isPlaying);
         container.cheatDance = EditorGUILayout.Toggle("Cheat Dance", container.cheatDance);
