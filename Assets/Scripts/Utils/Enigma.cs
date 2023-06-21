@@ -5,7 +5,8 @@ public class EnigmaEvent : UnityEvent<EnigmaEnum>
 {
 }
 
-public class Enigma : MonoBehaviour
+public abstract class Enigma : MonoBehaviour
+
 {
 
     private GameManager gameManager;
@@ -28,16 +29,14 @@ public class Enigma : MonoBehaviour
     //Permet de voir si la condition est validée
     protected void CheckEnigmaValidation(EnigmaEnum targetEngima)
     {
-        if (enigmaCondition())
+        if (EnigmaCondition())
         {
             ValidEnigma(targetEngima);
         }
     }
 
     //A changer dans les parents pour pouvoir changer les conditions de validation
-    protected virtual bool enigmaCondition()
-    {
-        return true;
-    }
-    
+    protected abstract bool EnigmaCondition();
 }
+
+    

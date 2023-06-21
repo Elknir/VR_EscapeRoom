@@ -13,7 +13,7 @@ public class CandleHolder : MonoBehaviour
     public UnityEvent validPlacement;
     public UnityEvent removePlacement;
     
-    void Awake()
+    private void Awake()
     {
         socket = GetComponent<XRSocketInteractor>();
         
@@ -63,11 +63,7 @@ public class CandleHolder : MonoBehaviour
         if(!socket.enabled) return;
         itemFound = false;
         
-        
-        
         Candle targetCandleScript = targetCandle.GetComponent<Candle>();
-        
-        
         
         CandleProperties candleProperties = targetCandleScript.properties;
         if (properties.Match(candleProperties))

@@ -1,4 +1,4 @@
-public class CandleEngimaManager : Enigma
+public class CandleEngimaManager : Enigma 
 {
     public EnigmaEnum currentEnigma;
     //TODO : faire un bouton GUI pour dire le nombre de candleHolder présent dans la scène
@@ -16,8 +16,8 @@ public class CandleEngimaManager : Enigma
         currentValidCandles--;
     }
 
-    protected override bool enigmaCondition()
+    protected override bool EnigmaCondition()
     {
-         return currentValidCandles == totalCandlesHolders ?  true :  false;
+        return currentValidCandles == totalCandlesHolders ?  true :  false;
     }
 }
