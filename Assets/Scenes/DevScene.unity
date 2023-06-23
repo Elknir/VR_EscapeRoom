@@ -3370,6 +3370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663df90540656041adaafcc34ec57d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheatTaquin: 0
+  cheatPotion: 0
+  cheatCandles: 1
+  cheatPowder: 0
+  cheatDance: 0
 --- !u!4 &559271247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
@@ -11555,8 +11560,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bb3ba22017fd248a309b9e4f166a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onEnigmaEnded: {fileID: 0}
   currentEnigma: 2
+  allCandleHolders:
+  - {fileID: 1980616711}
+  - {fileID: 1970150929}
   totalCandlesHolders: 2
 --- !u!43 &1862650241
 Mesh:

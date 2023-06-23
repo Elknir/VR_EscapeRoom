@@ -1,16 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnigmaEvent : UnityEvent<EnigmaEnum>
+public class EnigmaEvent : UnityEvent<EnigmaEnum, Action>
 {
 }
 
 public abstract class Enigma : MonoBehaviour
 
 {
-
+    public EnigmaEnum currentEnigma;
     private GameManager gameManager;
     private EnigmaEvent enigmaEvent;
+
+    private Action validateCallBack;
 
     private void Awake()
     {
@@ -19,24 +22,28 @@ public abstract class Enigma : MonoBehaviour
         enigmaEvent.AddListener(gameManager.ReciveSignal);
     }
 
-    private void ValidEnigma(EnigmaEnum targetEngima)
+    private void SendToGameManager(EnigmaEnum targetEngima)
     {
         //Event pour pas pouvoir le trigger 2 fois
-        enigmaEvent.Invoke(targetEngima);
+        
+        //envoyer une action //faire le validate
+        enigmaEvent.Invoke(targetEngima, () => {ValidEnigma();});
         enigmaEvent.RemoveAllListeners();
+        
     }
 
     //Permet de voir si la condition est validée
-    protected void CheckEnigmaValidation(EnigmaEnum targetEngima)
+    protected  void CheckEnigmaValidation(EnigmaEnum targetEngima)
     {
         if (EnigmaCondition())
         {
-            ValidEnigma(targetEngima);
+            SendToGameManager(targetEngima);
         }
     }
 
     //A changer dans les parents pour pouvoir changer les conditions de validation
     protected abstract bool EnigmaCondition();
+    public abstract void ValidEnigma();
 }
 
     

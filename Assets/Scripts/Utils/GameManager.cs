@@ -1,66 +1,82 @@
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
     public bool cheatTaquin, cheatPotion, cheatCandles, cheatPowder, cheatDance;
+    private bool validateTaquin, validatePotion, validateCandles, validatePowder, validateDance;
+
 
     public void Start()
     {
-        if (cheatTaquin) ReciveSignal(EnigmaEnum.Taquin);
-        if(cheatPotion) ReciveSignal(EnigmaEnum.Potion);
-        if(cheatCandles) ReciveSignal(EnigmaEnum.Candles);
-        if(cheatPowder) ReciveSignal(EnigmaEnum.Powder);
-        if(cheatDance) ReciveSignal(EnigmaEnum.Dance);
+        if (cheatTaquin) EmitSignal(EnigmaEnum.Taquin);
+        if(cheatPotion) EmitSignal(EnigmaEnum.Potion);
+        if(cheatCandles) EmitSignal(EnigmaEnum.Candles);
+        if(cheatPowder) EmitSignal(EnigmaEnum.Powder);
+        if(cheatDance) EmitSignal(EnigmaEnum.Dance);
     }
     
-    public void ReciveSignal(EnigmaEnum targetEngima)
+    public void ReciveSignal(EnigmaEnum targetEngima, Action validateCallBack)
     {
         switch(targetEngima) 
         {
             case EnigmaEnum.Taquin:
                 Debug.Log("GG ! T'as fini l'épreuve du taquin !");
                 //Ouvrir le tiroir de la dague sacrificielle
+                validateTaquin = true;
+                validateCallBack();
                 //Posiblement faire apparaitre les objets
                 break;
             case EnigmaEnum.Potion:
                 Debug.Log("GG ! T'as fini l'épreuve des potions !");
                 //Doit être validé une fois que le joueur a mis la potion de vie sur la fille
+                validatePotion = true;
+                validateCallBack();
                 //Faire un truc spécifique?
                 break;
             case EnigmaEnum.Candles:
                 Debug.Log("GG ! T'as fini l'épreuve des bougies !");
-                //Chopper tout les sockets et bloquer les bougies à l'interieur 
-                var candleHolders = FindObjectsByType(typeof(CandleHolder), FindObjectsSortMode.None);
-                foreach (var element in candleHolders)
-                {
-                    element.GetComponent<XRSocketInteractor>().enabled = false;
-                    var candle = element.GetComponent<CandleHolder>().targetCandle;
-                    if (candle)
-                    {
-                        candle.GetComponent<XRGrabInteractable>().enabled = false;
-                        candle.GetComponent<Rigidbody>().isKinematic = true;
-                    }
-                }
-                //Ouvrir une trape pour faire apparaitre la boule de cristal
+                validateCandles = true;
+                validateCallBack();
                 break;
             case EnigmaEnum.Powder:
                 Debug.Log("GG ! T'as fini l'épreuve de la poudre !");
                 //Si potion de vie finie faire apparaitre la page du grimoire
+                validatePowder = true;
+                validateCallBack();
                 break;
             case EnigmaEnum.Dance:
                 Debug.Log("GG ! T'as fini l'épreuve de la dance !");
+                if (validateTaquin && validatePotion && validateCandles && validatePowder)
+                {
+                    validateDance = true;
+                    validateCallBack();
+                }
                 //Bruler le Grimoire
                 //Faire Apparaitre le démon
                 //Puis fin du jeu?
                 break;
-
         }
     }
+
+
+    private void EmitSignal(EnigmaEnum targetEngima)
+    {
+        foreach (Transform child in transform)
+        {
+            Enigma comparedEnigma = child.GetComponent<Enigma>();
+            if (comparedEnigma.currentEnigma== targetEngima)
+            {
+                comparedEnigma.ValidEnigma();
+                return;
+            }
+        }
+        Debug.LogWarning(targetEngima + " EngimaManager not found !" );
+    }
+
 }
 
 [CustomEditor(typeof(GameManager))]
