@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 using Unity.VisualScripting;
@@ -56,6 +55,7 @@ public class CandleEngimaManager : Enigma
         totalCandlesHolders = allCandleHolders.Length;
     }
     
+#if UNITY_EDITOR
     [CustomEditor(typeof(CandleEngimaManager))]
     public class CandleEngimaEditor : Editor
     {
@@ -72,8 +72,6 @@ public class CandleEngimaManager : Enigma
             EditorGUI.EndDisabledGroup();
             serializedObject.ApplyModifiedProperties();
         }
-
-
-        
     }
+#endif
 }

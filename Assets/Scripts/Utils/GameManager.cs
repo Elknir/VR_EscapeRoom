@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -8,7 +7,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool cheatTaquin, cheatPotion, cheatCandles, cheatPowder, cheatDance;
     private bool validateTaquin, validatePotion, validateCandles, validatePowder, validateDance;
-
 
     public void Start()
     {
@@ -79,6 +77,7 @@ public class GameManager : MonoBehaviour
 
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(GameManager))]
 public class CheatEditor : Editor
 {
@@ -124,3 +123,4 @@ public class CheatEditor : Editor
         container.cheatTaquin = enable;
     }
 }
+#endif
