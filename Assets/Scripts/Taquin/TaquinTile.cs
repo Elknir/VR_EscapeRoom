@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -9,33 +10,66 @@ public class TaquinTile : XRBaseInteractable
 {
     [SerializeField]
     private DirectionEnum movingDirection;
-    private Vector3 lockedPosition, HandPosition;
+
+    private Vector3 lockedPosition;
     
     public UnityEvent validPlacement;
 
     private Renderer myRenderer;
+    private bool isHolding = false;
+    private GameObject targetHand;
+    
     protected override void Awake()
     {
-        
         base.Awake();
         lockedPosition = transform.position;
+
         myRenderer = GetComponent<Renderer>();
     }
 
     public void HoldItem()
     {
+        isHolding = !isHolding;
 
-        // Debug.Log(myRenderer);
+        if (!isHolding)
+        {
+            if (lockedPosition.y - transform.position.y  > Math.Abs(myRenderer.bounds.size.y / 2) )
+            {
+                LockTile();
+            }
+            else
+            {
+                  transform.position= lockedPosition;
+            }
+        }
+    }
+
+    private void IsHandToFar()
+    {
+        if (Vector3.Distance(transform.position, targetHand.transform.position) > 1.45)
+        {
+            HoldItem();
+        }
+    }
+
+
+    private void Update()
+    {
+        if(movingDirection == DirectionEnum.None || !isHolding) return;
         
+        IsHandToFar();
+
+        Vector3 HandPosition = targetHand.transform.position;
         switch (movingDirection)
         {
             case DirectionEnum.Down:
-                Debug.Log(myRenderer.bounds.center.y - HandPosition.y);
                 if (Convert(HandPosition).y < lockedPosition.y)
                 {
-                    transform.position = new Vector3(lockedPosition.x, Convert(HandPosition).y,lockedPosition.z);
+                    if (Convert(HandPosition).y > lockedPosition.y - Math.Abs(myRenderer.bounds.size.y))
+                    {
+                        transform.position = new Vector3(lockedPosition.x, Convert(HandPosition).y,lockedPosition.z);
+                    }
                 }
-                // Convert()
                 break;
             case DirectionEnum.Right:
                 if (HandPosition.z > lockedPosition.z)
@@ -55,34 +89,29 @@ public class TaquinTile : XRBaseInteractable
                     transform.position = new Vector3(lockedPosition.x, HandPosition.y,lockedPosition.z);
                 }
                 break;
-            case DirectionEnum.None:
-                break;
+
             default:
                 break;
         }
-        
-        
-
     }
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         base.OnSelectEntering(args);
-        HandPosition = args.interactor.gameObject.transform.position;
+        targetHand = args.interactor.gameObject;
     }
 
-    public void LockTile()
+    private void LockTile()
     {
-        validPlacement?.Invoke();
+        transform.position = new Vector3(lockedPosition.x,lockedPosition.y  - Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
         lockedPosition = transform.position;
+        
+        validPlacement?.Invoke();
     }
-
-    //faut convertir tout ce qui est en lien avec la handPos
 
     private Vector3 Convert(Vector3 targetVector)
     {
-        return targetVector -myRenderer.bounds.center + transform.position;
-        
+        return targetVector - myRenderer.bounds.center + transform.position;
     }
     
     public void OnDrawGizmosSelected()
