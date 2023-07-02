@@ -170,7 +170,6 @@ public class BookManager : GrabableObjects
 
     public override void UseItem()
     {
-        base.UseItem();
         if (isHeld)
         {
             UpdatePage(Sides.Right);

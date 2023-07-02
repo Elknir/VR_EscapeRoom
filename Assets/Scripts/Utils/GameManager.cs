@@ -98,14 +98,14 @@ public class CheatEditor : Editor
         {
             if(GUILayout.Button("Disable all cheats"))
             {
-                enableCheat(false, container);
+                EnableCheat(false, container);
             }
         }
         else
         {
             if(GUILayout.Button("Enable all cheats"))
             {
-                enableCheat(true, container);
+                EnableCheat(true, container);
 
             }
         }
@@ -114,7 +114,7 @@ public class CheatEditor : Editor
     }
 
 
-    public void enableCheat(bool enable, GameManager container)
+    public void EnableCheat(bool enable, GameManager container)
     {
         container.cheatDance = enable;
         container.cheatPowder = enable;
