@@ -6,40 +6,30 @@ using UnityEngine;
 public class TaquinEnigmaManager : Enigma
 {
     private GameObject[] AllTaquins;
-    public int width = 3, height = 3;
 
-    public GameObject taquins;
+
+    private bool heldTaquin;
     
     private void Start()
     {
+        //SET TOUT LES TAQUINS AVEC LA BONNE DIRECTION
+        //DONC LE FAIRE MEME APRES DE PLACEMENT
+        //FAIRE UN CHECK DES COORDONNES DES TAQUINS POUR LA FIN
+    }
 
-        if (!taquins)
+
+    public void TileGrabbed(Action validateGrab)
+    {
+        if (!heldTaquin)
         {
-            Debug.LogError("Please set an attach for the taquin !");
-            return;
+            heldTaquin = true;
+            validateGrab();
         }
-
-        ;
-    
-        // Debug.Log(taquins.transform.GetChild(0).);
-        
-
-
-        int childCount = 0;
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                if (i == 1 && j == 1)
-                {
-                    continue;
-                }
-
-                
-                GameObject targetTaquin = taquins.transform.GetChild(childCount).gameObject; 
-                childCount++;
-            }
-        }
+    }
+    public void TileDropped(Action validateGrab)
+    {
+        heldTaquin = false;
+        validateGrab();
     }
 
 

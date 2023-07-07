@@ -1,10 +1,15 @@
 using System;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Vector3 = UnityEngine.Vector3;
 using UnityEngine.Events;
 using Matrix4x4 = UnityEngine.Matrix4x4;
+
+public class TaquinEvent : UnityEvent<Action>
+{
+}
 
 public class TaquinTile : XRBaseInteractable
 {
@@ -13,51 +18,78 @@ public class TaquinTile : XRBaseInteractable
 
     private Vector3 lockedPosition;
     
-    public UnityEvent validPlacement;
 
     private Renderer myRenderer;
     private bool isHolding = false;
     private GameObject targetHand;
     
+    public UnityEvent validPlacement;
+    public TaquinEvent tileGrabbed, tileDropped ;
+    private Action validateGrab;
+
     protected override void Awake()
     {
         base.Awake();
         lockedPosition = transform.position;
 
         myRenderer = GetComponent<Renderer>();
-    }
 
+        TaquinEnigmaManager taquinEnigmaManager =
+            FindObjectsByType(typeof(TaquinEnigmaManager), FindObjectsSortMode.None)[0].GetComponent<TaquinEnigmaManager>();
+        
+        if (taquinEnigmaManager == null)
+        {
+            Debug.LogError("TAQUIN MANAGER MISSING ! ");
+
+        }
+
+        if (tileGrabbed == null || tileDropped == null)
+        {
+            tileGrabbed = new TaquinEvent();
+            tileDropped = new TaquinEvent();
+        }
+        tileGrabbed.AddListener(taquinEnigmaManager.TileGrabbed);
+        tileDropped.AddListener(taquinEnigmaManager.TileDropped);
+    }
+    
     public void HoldItem()
     {
-        isHolding = !isHolding;
-
-        if (!isHolding)
-        {
-            if (lockedPosition.y - transform.position.y  > Math.Abs(myRenderer.bounds.size.y / 2) )
-            {
-                LockTile();
-            }
-            else
-            {
-                  transform.position= lockedPosition;
-            }
-        }
+        isHolding = true;
     }
 
-    private void IsHandToFar()
+    public void DropItem()
+    {
+        isHolding = false;
+        
+        if (lockedPosition.y - transform.position.y  > Math.Abs(myRenderer.bounds.size.y / 2) )
+        {
+            LockTile();
+        }
+        else
+        {
+            transform.position = lockedPosition;
+        }
+    }
+            
+
+   
+
+    private bool IsHandToFar()
     {
         if (Vector3.Distance(transform.position, targetHand.transform.position) > 1.45)
         {
-            HoldItem();
+            tileDropped.Invoke(() => {DropItem();});
+            return true;
         }
+        return false;
     }
-
 
     private void Update()
     {
-        if(movingDirection == DirectionEnum.None || !isHolding) return;
         
-        IsHandToFar();
+        //FAIRE TOUTES LES DIRECTIONS
+        //FAIRE LA ROTATION EN X
+        if(movingDirection == DirectionEnum.None || !isHolding || IsHandToFar()) return;
 
         Vector3 HandPosition = targetHand.transform.position;
         switch (movingDirection)
@@ -99,16 +131,29 @@ public class TaquinTile : XRBaseInteractable
     {
         base.OnSelectEntering(args);
         targetHand = args.interactor.gameObject;
+        tileGrabbed.Invoke(() => {HoldItem();});
+    }
+
+    protected override void OnSelectExiting(SelectExitEventArgs args)
+    {
+        base.OnSelectExiting(args);
+        tileDropped.Invoke(() => {DropItem();});
     }
 
     private void LockTile()
     {
         transform.position = new Vector3(lockedPosition.x,lockedPosition.y  - Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
+        
+        
+        //Envoyer le signal au manager
+        //Et prendre la positon qu'il avait avant pour envoyer les nouvelles directions aux taquins a coté
+        validPlacement?.Invoke();
+        
         lockedPosition = transform.position;
         
-        validPlacement?.Invoke();
-    }
 
+    }
+    
     private Vector3 Convert(Vector3 targetVector)
     {
         return targetVector - myRenderer.bounds.center + transform.position;
