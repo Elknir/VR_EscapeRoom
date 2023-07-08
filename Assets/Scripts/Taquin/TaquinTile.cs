@@ -100,6 +100,7 @@ public class TaquinTile : XRBaseInteractable
                     if (Convert(HandPosition).y > lockedPosition.y - Math.Abs(myRenderer.bounds.size.y))
                     {
                         transform.position = new Vector3(lockedPosition.x, Convert(HandPosition).y,lockedPosition.z);
+                        transform.localPosition += new Vector3((transform.position.y - lockedPosition.y)/10, 0, 0);
                     }
                 }
                 break;
@@ -142,9 +143,9 @@ public class TaquinTile : XRBaseInteractable
 
     private void LockTile()
     {
+        //POUR QUE CE SOIT POUR TOUTES LES DIRECTIONS
         transform.position = new Vector3(lockedPosition.x,lockedPosition.y  - Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
-        
-        
+
         //Envoyer le signal au manager
         //Et prendre la positon qu'il avait avant pour envoyer les nouvelles directions aux taquins a coté
         validPlacement?.Invoke();
