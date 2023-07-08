@@ -16,7 +16,6 @@ public class CandleHolder : MonoBehaviour
     private void Awake()
     {
         socket = GetComponent<XRSocketInteractor>();
-        
     }
  
     //bougie arrivé au point d'attache

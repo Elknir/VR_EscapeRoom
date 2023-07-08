@@ -14,8 +14,6 @@ public class GrabableObjects : MonoBehaviour
         isHeld = false;
     }
 
-    public virtual void UseItem()
-    {
-        
-    }
+    public virtual void UseItem(){}
+
 }

@@ -43,6 +43,8 @@ public abstract class Enigma : MonoBehaviour
 
     //A changer dans les parents pour pouvoir changer les conditions de validation
     protected abstract bool EnigmaCondition();
+    //Si l'enigme a été validé par le gameManager
+    //Need to be public for the gameManager to access it
     public abstract void ValidEnigma();
 }
 

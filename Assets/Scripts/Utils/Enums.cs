@@ -21,6 +21,16 @@ public enum EnigmaEnum
     Dance,
 }
 
+
+public enum DirectionEnum
+{
+    Up,
+    Right,
+    Down,
+    Left,
+    None,
+}
+
 [System.Serializable]
 public struct CandleProperties
 {
