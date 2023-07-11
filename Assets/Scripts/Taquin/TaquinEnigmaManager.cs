@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = System.Object;
+using System.Linq;
+
 
 public class TaquinEnigmaManager : Enigma
 {
@@ -15,6 +18,17 @@ public class TaquinEnigmaManager : Enigma
         //SET TOUT LES TAQUINS AVEC LA BONNE DIRECTION
         //DONC LE FAIRE MEME APRES DE PLACEMENT
         //FAIRE UN CHECK DES COORDONNES DES TAQUINS POUR LA FIN
+        
+        var objects = FindObjectsByType(typeof(TaquinTile), FindObjectsSortMode.None);
+        
+        Array.Sort(objects, (a,b) => a.name.CompareTo(b.name));
+        for (int i = 0; i < objects.Length; i++)
+        {
+            Object element = objects[i];
+            Debug.Log(element);
+
+            Debug.Log(i % 3); 
+        }
     }
 
 

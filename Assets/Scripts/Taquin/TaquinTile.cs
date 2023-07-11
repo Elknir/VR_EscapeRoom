@@ -61,14 +61,52 @@ public class TaquinTile : XRBaseInteractable
     {
         isHolding = false;
         
-        if (lockedPosition.y - transform.position.y  > Math.Abs(myRenderer.bounds.size.y / 2) )
+        
+        switch (movingDirection)
         {
-            LockTile();
+            case DirectionEnum.Down:
+                if (lockedPosition.y - transform.position.y  > Math.Abs(myRenderer.bounds.size.y / 2) )
+                {
+                    LockTile();
+                }
+                else
+                {
+                    transform.position = lockedPosition;
+                }
+                break;
+            case DirectionEnum.Right:
+                if ( transform.position.z - lockedPosition.z > Math.Abs(myRenderer.bounds.size.z / 2) )
+                {
+                    LockTile();
+                }
+                else
+                {
+                    transform.position = lockedPosition;
+                }
+                break;
+            case DirectionEnum.Left:
+                if (lockedPosition.z - transform.position.z> Math.Abs(myRenderer.bounds.size.z / 2) )
+                {
+                    LockTile();
+                }
+                else
+                {
+                    transform.position = lockedPosition;
+                }
+                break;
+                break;
+            case DirectionEnum.Up:
+                if ( transform.position.y - lockedPosition.y > Math.Abs(myRenderer.bounds.size.y / 2) )
+                {
+                    LockTile();
+                }
+                else
+                {
+                    transform.position = lockedPosition;
+                }
+                break;
         }
-        else
-        {
-            transform.position = lockedPosition;
-        }
+        
     }
             
 
@@ -100,30 +138,39 @@ public class TaquinTile : XRBaseInteractable
                     if (Convert(HandPosition).y > lockedPosition.y - Math.Abs(myRenderer.bounds.size.y))
                     {
                         transform.position = new Vector3(lockedPosition.x, Convert(HandPosition).y,lockedPosition.z);
+                        // N'EST PAS MATHEMATIQUEMENT CORRECT = LEGER DECALAGE         
                         transform.localPosition += new Vector3((transform.position.y - lockedPosition.y)/10, 0, 0);
                     }
                 }
                 break;
             case DirectionEnum.Right:
-                if (HandPosition.z > lockedPosition.z)
+                if (Convert(HandPosition).z > lockedPosition.z)
                 {
-                    transform.position = new Vector3(lockedPosition.x, lockedPosition.y,HandPosition.z);
+                    if (Convert(HandPosition).z < lockedPosition.z + Math.Abs(myRenderer.bounds.size.z))
+                    {
+                        transform.position = new Vector3(lockedPosition.x,lockedPosition.y,Convert(HandPosition).z);
+                    }
                 }
                 break;
             case DirectionEnum.Left:
-                if (HandPosition.z < lockedPosition.z)
+                if (Convert(HandPosition).z < lockedPosition.z)
                 {
-                    transform.position = new Vector3(lockedPosition.x, lockedPosition.y,HandPosition.z);
+                    if (Convert(HandPosition).z > lockedPosition.z - Math.Abs(myRenderer.bounds.size.z))
+                    {
+                        transform.position = new Vector3(lockedPosition.x,lockedPosition.y,Convert(HandPosition).z);
+                    }
                 }
                 break;
             case DirectionEnum.Up:
-                if (HandPosition.y > lockedPosition.y)
+                if (Convert(HandPosition).y > lockedPosition.y)
                 {
-                    transform.position = new Vector3(lockedPosition.x, HandPosition.y,lockedPosition.z);
+                    if (Convert(HandPosition).y < lockedPosition.y + Math.Abs(myRenderer.bounds.size.y))
+                    {
+                        transform.position = new Vector3(lockedPosition.x, Convert(HandPosition).y,lockedPosition.z);
+                        // N'EST PAS MATHEMATIQUEMENT CORRECT = LEGER DECALAGE         
+                        transform.localPosition += new Vector3((transform.position.y - lockedPosition.y)/10, 0, 0);
+                    }
                 }
-                break;
-
-            default:
                 break;
         }
     }
@@ -133,6 +180,7 @@ public class TaquinTile : XRBaseInteractable
         base.OnSelectEntering(args);
         targetHand = args.interactor.gameObject;
         tileGrabbed.Invoke(() => {HoldItem();});
+        
     }
 
     protected override void OnSelectExiting(SelectExitEventArgs args)
@@ -143,8 +191,23 @@ public class TaquinTile : XRBaseInteractable
 
     private void LockTile()
     {
-        //POUR QUE CE SOIT POUR TOUTES LES DIRECTIONS
-        transform.position = new Vector3(lockedPosition.x,lockedPosition.y  - Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
+        // N'EST PAS MATHEMATIQUEMENT CORRECT = LEGER DECALAGE
+        switch (movingDirection)
+        {
+            case DirectionEnum.Down:
+                transform.position = new Vector3(lockedPosition.x + Math.Abs(myRenderer.bounds.size.y) / 10,lockedPosition.y  - Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
+                break;
+            case DirectionEnum.Right:
+                transform.position = new Vector3(lockedPosition.x ,lockedPosition.y , lockedPosition.z + Math.Abs(myRenderer.bounds.size.z)); 
+                break;
+            case DirectionEnum.Left:
+                transform.position = new Vector3(lockedPosition.x ,lockedPosition.y , lockedPosition.z - Math.Abs(myRenderer.bounds.size.z)); 
+                break;
+            case DirectionEnum.Up:
+                transform.position = new Vector3(lockedPosition.x - Math.Abs(myRenderer.bounds.size.y) / 10,lockedPosition.y + Math.Abs(myRenderer.bounds.size.y) , lockedPosition.z); 
+                break;
+        }
+
 
         //Envoyer le signal au manager
         //Et prendre la positon qu'il avait avant pour envoyer les nouvelles directions aux taquins a coté

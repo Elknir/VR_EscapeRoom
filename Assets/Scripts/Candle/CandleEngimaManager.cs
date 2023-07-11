@@ -30,7 +30,6 @@ public class CandleEngimaManager : Enigma
 
     public override void ValidEnigma()
     {
-        Debug.Log("Candle locked !");
         //Ouvrir une trape pour faire apparaitre la boule de cristal
 
         
@@ -39,6 +38,7 @@ public class CandleEngimaManager : Enigma
 
         foreach (var element in allCandleHolders)
         {
+            Debug.Log("Candle locked !");
             element.GetComponent<XRSocketInteractor>().enabled = false;
             var candle = element.GetComponent<CandleHolder>().targetCandle;
             if (candle)
