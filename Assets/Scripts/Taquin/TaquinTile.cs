@@ -6,27 +6,43 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Vector3 = UnityEngine.Vector3;
 using UnityEngine.Events;
 using Matrix4x4 = UnityEngine.Matrix4x4;
+using Vector2 = UnityEngine.Vector2;
 
 public class TaquinEvent : UnityEvent<Action>
 {
 }
 
+public class TaquinPlacedEvent : UnityEvent<Vector2>
+{
+}
+
 public class TaquinTile : XRBaseInteractable
 {
-    [SerializeField]
-    private DirectionEnum movingDirection;
 
-    private Vector3 lockedPosition;
+    // [SerializeField]
+    [HideInInspector]
+    public DirectionEnum movingDirection;
+
+    [HideInInspector]
+    public Vector3 lockedPosition;
     
-
     private Renderer myRenderer;
     private bool isHolding = false;
     private GameObject targetHand;
-    
-    public UnityEvent validPlacement;
+
+    [HideInInspector]
+    public TaquinPlacedEvent validPlacement;
+    [HideInInspector]
     public TaquinEvent tileGrabbed, tileDropped ;
     private Action validateGrab;
-
+    
+    [HideInInspector]
+    public Vector2 coordinates;
+    
+    //POUR LE CHECKING FAUT : UN GOAL COORDS
+    [HideInInspector]
+    public Vector2 goalCoords;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -47,9 +63,12 @@ public class TaquinTile : XRBaseInteractable
         {
             tileGrabbed = new TaquinEvent();
             tileDropped = new TaquinEvent();
+            validPlacement = new TaquinPlacedEvent();
         }
         tileGrabbed.AddListener(taquinEnigmaManager.TileGrabbed);
         tileDropped.AddListener(taquinEnigmaManager.TileDropped);
+        validPlacement.AddListener(taquinEnigmaManager.ValidTaquinPlaced);
+
     }
     
     public void HoldItem()
@@ -93,7 +112,6 @@ public class TaquinTile : XRBaseInteractable
                 {
                     transform.position = lockedPosition;
                 }
-                break;
                 break;
             case DirectionEnum.Up:
                 if ( transform.position.y - lockedPosition.y > Math.Abs(myRenderer.bounds.size.y / 2) )
@@ -178,7 +196,7 @@ public class TaquinTile : XRBaseInteractable
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         base.OnSelectEntering(args);
-        targetHand = args.interactor.gameObject;
+        targetHand = args.interactorObject.transform.gameObject;
         tileGrabbed.Invoke(() => {HoldItem();});
         
     }
@@ -211,7 +229,7 @@ public class TaquinTile : XRBaseInteractable
 
         //Envoyer le signal au manager
         //Et prendre la positon qu'il avait avant pour envoyer les nouvelles directions aux taquins a coté
-        validPlacement?.Invoke();
+        validPlacement?.Invoke(coordinates);
         
         lockedPosition = transform.position;
         
