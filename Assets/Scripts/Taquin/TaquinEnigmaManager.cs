@@ -19,21 +19,21 @@ public class TaquinEnigmaManager : Enigma
     private Vector2[] coordsGoals = new Vector2[]
     {
         //1
-        new Vector2(1,0),
-        //2
-        new Vector2(0,1),
-        //3
-        new Vector2(2,0), 
-        //4
         new Vector2(0,0), 
-        //6
+        //2
         new Vector2(2,1),
+        //3
+        new Vector2(1,0),
+        //4
+        new Vector2(0,1),
+        //6
+        new Vector2(1,2),
         //7
         new Vector2(0,2),
         //8
-        new Vector2(1,2),
-        //9
         new Vector2(2,2),
+        //9
+        new Vector2(2,0), 
     };
     
     private void Start()

@@ -7,6 +7,8 @@ using Vector3 = UnityEngine.Vector3;
 using UnityEngine.Events;
 using Matrix4x4 = UnityEngine.Matrix4x4;
 using Vector2 = UnityEngine.Vector2;
+using UnityEditor;
+
 
 public class TaquinEvent : UnityEvent<Action>
 {
@@ -252,4 +254,27 @@ public class TaquinTile : XRBaseInteractable
         Gizmos.DrawWireCube(bounds.center, bounds.extents * 2);
     }
 
+    
+#if UNITY_EDITOR
+    [CustomEditor(typeof(TaquinTile))]
+    public class CheatEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            TaquinTile container = (TaquinTile)target;
+            base.OnInspectorGUI();
+
+            // EditorGUI.BeginDisabledGroup(Application.isEditor);
+            if (container.movingDirection != DirectionEnum.None)
+            {
+                if(GUILayout.Button("Lock tile"))
+                {
+                    container.LockTile();
+                }
+            }
+            // EditorGUI.EndDisabledGroup();
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
+#endif
 }
