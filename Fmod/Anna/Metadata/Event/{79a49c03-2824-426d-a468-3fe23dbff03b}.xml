@@ -5,13 +5,13 @@
 			<value>Yellow</value>
 		</property>
 		<property name="name">
-			<value>Env_Amb_Creaking</value>
+			<value>Env_Int_HeavyCreaking</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{e5898379-39e4-4ac6-8e3d-529f92b780c6}</destination>
+			<destination>{0af88177-b6fd-4ed9-9eda-46bbfd3eb1aa}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{db3d642a-4aff-4e4d-8417-c44d14c9e62d}</destination>
@@ -95,12 +95,6 @@
 		<property name="length">
 			<value>2.8000000000000003</value>
 		</property>
-		<relationship name="fadeInCurve">
-			<destination>{8790c710-abd7-4cfc-9bd2-e20cc3c93b49}</destination>
-		</relationship>
-		<relationship name="fadeOutCurve">
-			<destination>{be06a620-190b-4bf9-8836-de0c7ee01bc6}</destination>
-		</relationship>
 		<relationship name="sounds">
 			<destination>{03a1018c-435c-46b8-9a18-0a239edd8472}</destination>
 			<destination>{1a55367c-0aef-424b-8f60-8a3a49408ee0}</destination>
@@ -131,22 +125,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{080c36a2-4ea8-418a-b417-2a8a1ee3101a}" />
 	<object class="MixerBusFader" id="{d93ac658-1eb6-4745-bfc2-db57ed08515b}" />
-	<object class="FadeCurve" id="{8790c710-abd7-4cfc-9bd2-e20cc3c93b49}">
-		<relationship name="startPoint">
-			<destination>{4c68908b-a1ad-435a-b580-2833fa05685d}</destination>
-		</relationship>
-		<relationship name="endPoint">
-			<destination>{aa4f4535-e76d-4f11-b041-663d899c16ae}</destination>
-		</relationship>
-	</object>
-	<object class="FadeCurve" id="{be06a620-190b-4bf9-8836-de0c7ee01bc6}">
-		<relationship name="startPoint">
-			<destination>{011048f9-0780-402b-8196-e31d346aa0f1}</destination>
-		</relationship>
-		<relationship name="endPoint">
-			<destination>{e10cc199-6cb5-4964-958a-7c498e66eea1}</destination>
-		</relationship>
-	</object>
 	<object class="SingleSound" id="{03a1018c-435c-46b8-9a18-0a239edd8472}">
 		<relationship name="audioFile">
 			<destination>{79df69e3-d085-48c3-8ee1-776a671680a7}</destination>
@@ -185,51 +163,13 @@
 			<destination>{f9a6aac9-aa57-45c3-9d7c-35ba65171704}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{4c68908b-a1ad-435a-b580-2833fa05685d}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-		<property name="curveShape">
-			<value>-0.559998989</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{aa4f4535-e76d-4f11-b041-663d899c16ae}">
-		<property name="position">
-			<value>0.65000000000000002</value>
-		</property>
-		<property name="value">
-			<value>1</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{011048f9-0780-402b-8196-e31d346aa0f1}">
-		<property name="position">
-			<value>1.5</value>
-		</property>
-		<property name="value">
-			<value>1</value>
-		</property>
-		<property name="curveShape">
-			<value>-0.305869341</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{e10cc199-6cb5-4964-958a-7c498e66eea1}">
-		<property name="position">
-			<value>2.8000000000000003</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{a364df67-76c0-4060-b1c1-7a8bd99a18cc}" />
 	<object class="MultibandEqEffect" id="{2cbb54f7-525f-4dfe-94cc-275ad689e066}">
 		<property name="frequencyA">
-			<value>140.236496</value>
+			<value>356.270752</value>
 		</property>
 		<property name="qualityA">
-			<value>0.623275876</value>
+			<value>0.393034458</value>
 		</property>
 	</object>
 	<object class="Plugin" id="{f9a6aac9-aa57-45c3-9d7c-35ba65171704}">
@@ -324,7 +264,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -333,7 +272,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -369,7 +307,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>
