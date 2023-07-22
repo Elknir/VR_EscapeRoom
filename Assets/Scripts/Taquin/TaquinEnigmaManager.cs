@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Object = System.Object;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public class TaquinEnigmaManager : Enigma
 {
     private GameObject[] allTaquins;
-    
     
     private Dictionary<Vector2, TaquinTile> tiles = new Dictionary<Vector2, TaquinTile>();
     private bool heldTaquin;
@@ -18,6 +16,25 @@ public class TaquinEnigmaManager : Enigma
     private int maxMoves;
     private int movesLeft;
     
+    private Vector2[] coordsGoals = new Vector2[]
+    {
+        //1
+        new Vector2(1,0),
+        //2
+        new Vector2(0,1),
+        //3
+        new Vector2(2,0), 
+        //4
+        new Vector2(0,0), 
+        //6
+        new Vector2(2,1),
+        //7
+        new Vector2(0,2),
+        //8
+        new Vector2(1,2),
+        //9
+        new Vector2(2,2),
+    };
     
     private void Start()
     {
@@ -27,17 +44,23 @@ public class TaquinEnigmaManager : Enigma
         
         movesLeft = maxMoves;
 
-        TaquinTile[] salut = FindObjectsOfType<TaquinTile>();
+        TaquinTile[] tempTiles = FindObjectsOfType<TaquinTile>();
         //oblige de par ca sinon il accepte pas 
-        allTaquins = new GameObject[salut.Length];
-        for (int i = 0; i < salut.Length; i++)
+        allTaquins = new GameObject[tempTiles.Length];
+        for (int i = 0; i < tempTiles.Length; i++)
         {
-            allTaquins[i] = salut[i].gameObject;
+            allTaquins[i] = tempTiles[i].gameObject;
         }
 
         //Plus forcement necessaire mais c'est propre + tjrs le meme output
         Array.Sort(allTaquins, (a,b) => a.name.CompareTo(b.name));
 
+        
+        for (int i = 0; i < allTaquins.Length; i++)
+        {
+            allTaquins[i].GetComponent<TaquinTile>().goalCoords = coordsGoals[i];
+        }
+        
         DictionnaryInit();
     }
 
@@ -52,11 +75,9 @@ public class TaquinEnigmaManager : Enigma
             Vector2 tileCoords = new Vector2((myNumber - 1) % 3 , (myNumber - 1) / 3);
             // Debug.Log(element.name + " : "+ tileCoords.x + "/" + tileCoords.y);
             TaquinTile scriptTarget = element.GetComponent<TaquinTile>();
+            
             scriptTarget.coordinates = tileCoords;
             tiles.Add(tileCoords,scriptTarget);
-            
-
-
         }
         
         AssignDirections(new Vector2(1,1));
@@ -81,27 +102,43 @@ public class TaquinEnigmaManager : Enigma
 
     protected override bool EnigmaCondition()
     {
-        return false;
+        foreach (var elements in tiles)
+        {
+            // Debug.Log($"{elements.Value.coordinates != elements.Value.goalCoords} : {elements.Value.coordinates.x},{elements.Value.coordinates.y}/{elements.Value.goalCoords.x},{elements.Value.goalCoords.y}" );
+            if (elements.Value.coordinates != elements.Value.goalCoords)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public override void ValidEnigma()
     {
+        foreach (var VARIABLE in tiles)
+        {
+            Debug.Log("Taquin locked !");
+            var element = VARIABLE.Value;
+            element.movingDirection = DirectionEnum.None;
+        }
         
+        var centerTaquinHolder =FindObjectsOfType<CenterTaquinHolder>();;
+        if (centerTaquinHolder.Length == 0) return;
+        centerTaquinHolder[0].gameObject.GetComponent<XRSocketInteractor>().socketActive = true;
     }
 
 
     public void ValidTaquinPlaced(Vector2 coords)
     {
         movesLeft--;
-        Debug.Log(movesLeft);
+        // Debug.Log(movesLeft);
+        AssignCoordinates(coords);
+        
+        CheckEnigmaValidation(currentEnigma);
+        if(EnigmaCondition()) return;
 
-        //CHECK SI LES COORDS SONT BONNES + RETURN
-        if (movesLeft > 0)
+        if (movesLeft <= 0)
         { 
-            AssignCoordinates(coords);
-        }
-        else
-        {
             ResetTaquinPostions();
         }
         
@@ -111,6 +148,8 @@ public class TaquinEnigmaManager : Enigma
     {
         TaquinTile targetTaquinTile;
         tiles.TryGetValue(coords, out targetTaquinTile);
+        if(!targetTaquinTile) return;
+        
         switch (targetTaquinTile.movingDirection)
         {
             case DirectionEnum.Down:
@@ -124,6 +163,8 @@ public class TaquinEnigmaManager : Enigma
                 break;
             case DirectionEnum.Right:
                 targetTaquinTile.coordinates =  coords + Vector2.right;
+                break;
+            default:
                 break;
         }
         tiles.Remove(coords);

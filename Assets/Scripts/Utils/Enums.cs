@@ -15,10 +15,10 @@ public enum CandleGirth
 public enum EnigmaEnum
 {
     Taquin,
+    TaquinMiddle,
     Potion,
+    PotionOnBody,
     Candles,
-    Powder,
-    Dance,
 }
 
 

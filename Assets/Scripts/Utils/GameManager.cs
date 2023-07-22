@@ -5,16 +5,16 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
-    public bool cheatTaquin, cheatPotion, cheatCandles, cheatPowder, cheatDance;
-    private bool validateTaquin, validatePotion, validateCandles, validatePowder, validateDance;
+    public bool cheatTaquin, cheatPotion, cheatCandles, cheatTaquinMiddle, cheatPotionOnBody;
+    private bool validateTaquin, validatePotion, validateCandles, validateTaquinMiddle, validatePotionOnBody;
 
     public void Start()
     {
         if (cheatTaquin) EmitSignal(EnigmaEnum.Taquin);
         if(cheatPotion) EmitSignal(EnigmaEnum.Potion);
         if(cheatCandles) EmitSignal(EnigmaEnum.Candles);
-        if(cheatPowder) EmitSignal(EnigmaEnum.Powder);
-        if(cheatDance) EmitSignal(EnigmaEnum.Dance);
+        if(cheatTaquinMiddle) EmitSignal(EnigmaEnum.TaquinMiddle);
+        if(cheatPotionOnBody) EmitSignal(EnigmaEnum.PotionOnBody);
     }
     
     public void ReciveSignal(EnigmaEnum targetEngima, Action validateCallBack)
@@ -40,17 +40,17 @@ public class GameManager : MonoBehaviour
                 validateCandles = true;
                 validateCallBack();
                 break;
-            case EnigmaEnum.Powder:
-                Debug.Log("GG ! T'as fini l'épreuve de la poudre !");
+            case EnigmaEnum.TaquinMiddle:
+                Debug.Log("GG ! T'as fini l'épreuve du TaquinMiddle !");
                 //Si potion de vie finie faire apparaitre la page du grimoire
-                validatePowder = true;
+                validateTaquinMiddle = true;
                 validateCallBack();
                 break;
-            case EnigmaEnum.Dance:
+            case EnigmaEnum.PotionOnBody:
                 Debug.Log("GG ! T'as fini l'épreuve de la dance !");
-                if (validateTaquin && validatePotion && validateCandles && validatePowder)
+                if (validateTaquin && validatePotion && validateCandles && validateTaquinMiddle)
                 {
-                    validateDance = true;
+                    validatePotionOnBody = true;
                     validateCallBack();
                 }
                 //Bruler le Grimoire
@@ -87,13 +87,13 @@ public class CheatEditor : Editor
         base.OnInspectorGUI();
 
         EditorGUI.BeginDisabledGroup(Application.isPlaying);
-        container.cheatDance = EditorGUILayout.Toggle("Cheat Dance", container.cheatDance);
-        container.cheatPowder = EditorGUILayout.Toggle("Cheat Powder", container.cheatPowder);
+        container.cheatPotionOnBody = EditorGUILayout.Toggle("Cheat PotionOnBody", container.cheatPotionOnBody);
+        container.cheatTaquinMiddle = EditorGUILayout.Toggle("Cheat TaquinMiddle", container.cheatTaquinMiddle);
         container.cheatCandles = EditorGUILayout.Toggle("Cheat Candles", container.cheatCandles);
         container.cheatPotion = EditorGUILayout.Toggle("Cheat Potion", container.cheatPotion);
         container.cheatTaquin = EditorGUILayout.Toggle("Cheat Taquin", container.cheatTaquin);
         
-        if (container.cheatDance || container.cheatPowder || container.cheatCandles || container.cheatPotion ||
+        if (container.cheatPotionOnBody || container.cheatTaquinMiddle || container.cheatCandles || container.cheatPotion ||
             container.cheatTaquin)
         {
             if(GUILayout.Button("Disable all cheats"))
@@ -116,8 +116,8 @@ public class CheatEditor : Editor
 
     public void EnableCheat(bool enable, GameManager container)
     {
-        container.cheatDance = enable;
-        container.cheatPowder = enable;
+        container.cheatPotionOnBody = enable;
+        container.cheatTaquinMiddle = enable;
         container.cheatCandles = enable;
         container.cheatPotion = enable;
         container.cheatTaquin = enable;
