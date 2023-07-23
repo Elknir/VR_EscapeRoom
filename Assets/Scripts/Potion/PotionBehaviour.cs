@@ -5,6 +5,7 @@ public class PotionBehaviour : GrabableObjects
     protected bool isActive = false;
     public GameObject potionParticleObject;
     private ParticleSystem potionParticleSystem;
+    public Ingredients ingredient;
 
     protected virtual void Awake()
     {
@@ -37,8 +38,7 @@ public class PotionBehaviour : GrabableObjects
         base.DropItem();
         ParticleEnable(false);
     }
-
-
+    
 
     protected void ParticleEnable(bool enable)
     {
@@ -46,16 +46,22 @@ public class PotionBehaviour : GrabableObjects
         {
             isActive = true;
             potionParticleSystem.Play();
-            Debug.Log("Activer les particules");
+            DisablePlug(false);
         }
         else
         {
             isActive = false;
             potionParticleSystem.Stop();
-            potionParticleSystem.Clear(); 
-            Debug.Log("Desactiver les particules");
-
+            potionParticleSystem.Clear();
+            DisablePlug(true);
         }
+    }
+
+
+    protected virtual void DisablePlug(bool enable)
+    {
+        transform.GetChild(0).gameObject.SetActive(enable);
+
     }
 }
 

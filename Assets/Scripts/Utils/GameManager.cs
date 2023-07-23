@@ -47,12 +47,13 @@ public class GameManager : MonoBehaviour
                 validateCallBack();
                 break;
             case EnigmaEnum.PotionOnBody:
-                Debug.Log("GG ! T'as fini l'épreuve de la dance !");
-                if (validateTaquin && validatePotion && validateCandles && validateTaquinMiddle)
-                {
-                    validatePotionOnBody = true;
-                    validateCallBack();
-                }
+                Debug.Log("GG ! T'as fini l'épreuve de la PotionOnBody !");
+                // if (validateTaquin && validatePotion && validateCandles && validateTaquinMiddle)
+                // {
+                //     
+                // }
+                validatePotionOnBody = true;
+                validateCallBack();
                 //Bruler le Grimoire
                 //Faire Apparaitre le démon
                 //Puis fin du jeu?

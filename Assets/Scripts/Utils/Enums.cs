@@ -31,6 +31,17 @@ public enum DirectionEnum
     None,
 }
 
+public enum Ingredients
+{
+    DentDeSerpent,
+    OeilDeCrapaud,
+    Mandragore,
+    Glauconite,
+    Coprin,
+    Bissap,
+    PotionFinale,
+}
+
 [System.Serializable]
 public struct CandleProperties
 {

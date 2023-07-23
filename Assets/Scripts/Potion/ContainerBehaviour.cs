@@ -26,10 +26,10 @@ public class ContainerBehaviour : PotionBehaviour
 
         var distanceFromCenter = Vector3.Distance(transform.position, collisionPoint);
         
+        
         if (distanceFromCenter >= 0.09 && !isActive)
         {
             ParticleEnable(true);
-
         }
         else if(distanceFromCenter <= 0.09 && isActive)
         {
@@ -37,8 +37,13 @@ public class ContainerBehaviour : PotionBehaviour
 
         }
     }
-    
-    
+
+
+    protected override void DisablePlug(bool enable)
+    {
+    }
+
+
     void OnDrawGizmos()
     {
         if (isHeld)
