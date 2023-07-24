@@ -40,7 +40,7 @@ public class PotionBehaviour : GrabableObjects
     }
     
 
-    protected void ParticleEnable(bool enable)
+    protected virtual void ParticleEnable(bool enable)
     {
         if (enable)
         {

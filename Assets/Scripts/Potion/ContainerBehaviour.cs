@@ -6,6 +6,7 @@ public class ContainerBehaviour : PotionBehaviour
 
     private Collider colliderTop;
     private Vector3 collisionPoint;
+    public bool isFinised;
     
 
     protected override void Awake()
@@ -38,6 +39,14 @@ public class ContainerBehaviour : PotionBehaviour
         }
     }
 
+    protected override void ParticleEnable(bool enable)
+    {
+        //TODO: faut changer l architecture du code si on veut pouvoir le reutiliser sur d autres mais pas le temps 
+        if (isFinised)
+        {
+            base.ParticleEnable(enable);
+        }
+    }
 
     protected override void DisablePlug(bool enable)
     {

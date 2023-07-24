@@ -18,5 +18,8 @@ public class PotionEnigmaManager : Enigma
     {
         //Effets + changer la couleur de la potion?
         //isFinished
+        
+        var container =FindObjectsOfType<ContainerBehaviour>();;
+        container[0].isFinised = true;
     }
 }

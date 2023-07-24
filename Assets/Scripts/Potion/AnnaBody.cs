@@ -14,6 +14,9 @@ public class AnnaBody : MonoBehaviour
         //return si pas bol
         
         //envoyer au gamemanager il se chargera lui meme de dire si c est valide
-        validPlacement.Invoke();
+        if (targetIngedient == Ingredients.PotionFinale)
+        {
+            validPlacement.Invoke();
+        }
     }
 }
