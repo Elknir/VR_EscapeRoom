@@ -96,11 +96,8 @@ Sources: Multiple base ambiance sources in the room at different locations</valu
 	</object>
 	<object class="MixerBusPanner" id="{cf231a59-9711-437d-8a58-675554c388aa}" />
 	<object class="MultiSound" id="{1e6cc352-eff0-41f7-b933-950eb6513063}">
-		<property name="isAsync">
-			<value>true</value>
-		</property>
 		<property name="length">
-			<value>0.10000000000000001</value>
+			<value>4</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{03195228-f13a-4965-96b4-89c2508caca3}</destination>

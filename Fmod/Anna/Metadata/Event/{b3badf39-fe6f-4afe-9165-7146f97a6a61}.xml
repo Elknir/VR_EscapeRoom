@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b3badf39-fe6f-4afe-9165-7146f97a6a61}">
+		<property name="note">
+			<value>Trigger: Random
+Source: Ceiling &amp; Walls</value>
+		</property>
 		<property name="color">
 			<value>Green</value>
 		</property>
@@ -92,11 +96,8 @@
 	</object>
 	<object class="MixerBusPanner" id="{c724dc8a-4878-450d-8d88-72a1f84e5dbb}" />
 	<object class="MultiSound" id="{ef77cddf-04d6-4c4f-a0c0-b812e02d00dd}">
-		<property name="isAsync">
-			<value>true</value>
-		</property>
 		<property name="length">
-			<value>2</value>
+			<value>1.04</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{73851a8d-6f5f-4533-9345-05504c6c9954}</destination>
@@ -107,7 +108,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{aad75ae4-29ca-4f09-a9ec-1a44e9f7a2e1}">
 		<property name="volume">
-			<value>-9.5</value>
+			<value>-10</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
