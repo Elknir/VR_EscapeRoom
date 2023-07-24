@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{522f5d71-7e2b-41c9-b6b2-7362f9cdefa4}">
-		<property name="note" />
 		<property name="color">
 			<value>Yellow</value>
 		</property>
@@ -102,7 +101,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{24b68dda-e843-4d21-a7b6-e617a313db10}">
 		<property name="volume">
-			<value>-8</value>
+			<value>-13.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -230,7 +229,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -239,7 +237,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -275,7 +272,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

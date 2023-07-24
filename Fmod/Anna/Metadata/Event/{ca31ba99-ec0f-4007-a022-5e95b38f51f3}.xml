@@ -105,7 +105,7 @@ Source: The piece</value>
 	</object>
 	<object class="EventMixerGroup" id="{b2321cf3-dfe7-432c-ab6e-5ec68d8bb1cd}">
 		<property name="volume">
-			<value>-13.5</value>
+			<value>-5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -242,7 +242,6 @@ Source: The piece</value>
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -251,7 +250,6 @@ Source: The piece</value>
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -287,7 +285,6 @@ Source: The piece</value>
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

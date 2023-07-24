@@ -112,7 +112,7 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch
 	</object>
 	<object class="EventMixerGroup" id="{1cd30056-f82e-4ecf-ab21-07561d6d56c6}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-9</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -257,7 +257,6 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -266,7 +265,6 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -302,7 +300,6 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

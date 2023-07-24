@@ -109,7 +109,7 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch</value>
 	</object>
 	<object class="EventMixerGroup" id="{9d92b7b5-8f87-4f5b-b25a-24c863e828e4}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-16</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
