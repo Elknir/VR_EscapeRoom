@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{afb7b07a-f874-4dee-8173-916b18576d9d}">
+		<property name="note">
+			<value>Trigger: Random
+Sources: Multiple base ambiance sources in the room at different locations</value>
+		</property>
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green</value>
 		</property>
 		<property name="name">
 			<value>Env_Amb_Stinger</value>
@@ -33,6 +37,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{4f2be9c3-ad67-4570-8a9b-95656c224b79}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{297a16c4-91f0-4fa9-ba37-c770ba239ac9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{d84472ec-5fc2-4aa3-92fb-fe7a9d4025ad}">
@@ -101,6 +108,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{6fa28925-633b-4f95-9b03-5e1ee0d7b59a}">
+		<property name="volume">
+			<value>-30</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -143,6 +153,7 @@
 	<object class="MixerBusEffectChain" id="{e3ca4c0f-cf86-4b5a-a584-e558dc86656b}">
 		<relationship name="effects">
 			<destination>{f4ac07d0-7a23-41ff-91b5-1fe0ae79a614}</destination>
+			<destination>{1da2aec0-5665-4620-9aee-037e393d9ee2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{733f0eba-d4f3-4f09-b1f4-73c47e036c02}" />
@@ -172,6 +183,23 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{f4ac07d0-7a23-41ff-91b5-1fe0ae79a614}" />
+	<object class="MultibandEqEffect" id="{1da2aec0-5665-4620-9aee-037e393d9ee2}">
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="frequencyA">
+			<value>4023.18384</value>
+		</property>
+		<property name="frequencyB">
+			<value>78.5075455</value>
+		</property>
+		<property name="qualityA">
+			<value>0.602344871</value>
+		</property>
+		<property name="qualityB">
+			<value>0.351172417</value>
+		</property>
+	</object>
 	<object class="Plugin" id="{47cc7d10-ea82-44ca-b680-77d6ddc6f074}">
 		<property name="identifier">
 			<value>Resonance Audio Source</value>
@@ -264,7 +292,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -273,7 +300,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -309,7 +335,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

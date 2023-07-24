@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{79a49c03-2824-426d-a468-3fe23dbff03b}">
+		<property name="note">
+			<value>Trigger: Random
+Source: Ceiling &amp; Walls</value>
+		</property>
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green</value>
 		</property>
 		<property name="name">
-			<value>Env_Int_HeavyCreaking</value>
+			<value>Env_Int_HeavyCreakingWood</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -33,6 +37,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{ce6c144c-746b-48d5-8850-093e9ae33ed7}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{297a16c4-91f0-4fa9-ba37-c770ba239ac9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{db3d642a-4aff-4e4d-8417-c44d14c9e62d}">
@@ -104,6 +111,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{c5ebdb3b-1c40-49a9-9597-67e40479bc97}">
+		<property name="volume">
+			<value>-7</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -218,7 +228,7 @@
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>2</value>
+			<value>3</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
