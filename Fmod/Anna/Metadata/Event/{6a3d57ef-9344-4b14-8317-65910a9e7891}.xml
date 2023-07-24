@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6a3d57ef-9344-4b14-8317-65910a9e7891}">
 		<property name="color">
-			<value>Yellow</value>
+			<value>Red Light 2</value>
 		</property>
 		<property name="name">
 			<value>Env_Int_CreakingRope</value>
@@ -232,7 +232,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -241,7 +240,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -277,7 +275,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

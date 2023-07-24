@@ -34,6 +34,9 @@
 		<relationship name="timeline">
 			<destination>{62840433-74b9-40ef-a6bd-c6ab85504658}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{297a16c4-91f0-4fa9-ba37-c770ba239ac9}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{926ed01b-952b-4e5e-93a7-8f363a2cc1a9}">
 		<relationship name="masterBus">
@@ -211,7 +214,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -220,7 +222,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -256,7 +257,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

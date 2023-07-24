@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f12051f2-2e4a-481c-9bde-052b0a96a4f0}">
 		<property name="note">
-			<value>Trigger: Random
-Sources: Multiple base ambiance sources in the room at different locations</value>
+			<value>Author: Lucas
+Trigger: Random
+Sources: Multiple base ambiance sources in the room at different locations
+
+Random sounds to add ambiance, fear and mystery to the room.
+
+Reaper: 1 layer per sound + fx</value>
 		</property>
 		<property name="color">
 			<value>Green</value>
@@ -262,7 +267,6 @@ Sources: Multiple base ambiance sources in the room at different locations</valu
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -271,7 +275,6 @@ Sources: Multiple base ambiance sources in the room at different locations</valu
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -307,7 +310,6 @@ Sources: Multiple base ambiance sources in the room at different locations</valu
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

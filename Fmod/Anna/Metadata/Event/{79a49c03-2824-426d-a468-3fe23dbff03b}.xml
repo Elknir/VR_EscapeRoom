@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{79a49c03-2824-426d-a468-3fe23dbff03b}">
 		<property name="note">
-			<value>Trigger: Random
-Source: Ceiling &amp; Walls</value>
+			<value>Auteur: Lucas
+Trigger: Random
+Source: Ceiling &amp; Walls
+
+Random sounds to add ambiance, fear and mystery to the room.
+
+Reaper: 1 layer per sound + fx</value>
 		</property>
 		<property name="color">
 			<value>Green</value>

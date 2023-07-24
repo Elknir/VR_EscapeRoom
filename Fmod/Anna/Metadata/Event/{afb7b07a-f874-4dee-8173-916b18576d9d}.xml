@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{afb7b07a-f874-4dee-8173-916b18576d9d}">
 		<property name="note">
-			<value>Trigger: Random
-Sources: Multiple base ambiance sources in the room at different locations</value>
+			<value>Author: Lucas
+Trigger: Random
+Sources: Multiple base ambiance sources in the room at different locations
+
+Random sounds to add ambiance, fear and mystery to the room.
+
+Reaper: 2 layers + fx</value>
 		</property>
 		<property name="color">
 			<value>Green</value>

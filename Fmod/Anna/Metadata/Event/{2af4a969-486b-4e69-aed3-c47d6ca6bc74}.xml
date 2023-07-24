@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2af4a969-486b-4e69-aed3-c47d6ca6bc74}">
+		<property name="note" />
 		<property name="color">
 			<value>Red</value>
 		</property>
@@ -33,6 +34,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{4877b9f3-e9c1-4cec-8cd3-cd080196114b}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{297a16c4-91f0-4fa9-ba37-c770ba239ac9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{ddf519ff-a4d2-4171-8c46-4ca847d1b45d}">

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{522f5d71-7e2b-41c9-b6b2-7362f9cdefa4}">
+		<property name="note">
+			<value>Auteur: Alicia</value>
+		</property>
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green Light 1</value>
 		</property>
 		<property name="name">
 			<value>Man_Bowl_Impact</value>

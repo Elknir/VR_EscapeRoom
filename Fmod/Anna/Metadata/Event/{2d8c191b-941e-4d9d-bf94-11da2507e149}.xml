@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2d8c191b-941e-4d9d-bf94-11da2507e149}">
 		<property name="note">
-			<value>Trigger: Upon picking up a square piece
-Source: The square piece</value>
+			<value>Author: Lucas
+Trigger: Upon picking up a square piece
+Source: The square piece
+
+Small pickup sound for the missing piece of the puzzle
+
+Reaper: 2 layers by sounds</value>
 		</property>
 		<property name="color">
 			<value>Green</value>
