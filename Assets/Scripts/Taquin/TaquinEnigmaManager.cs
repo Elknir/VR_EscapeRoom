@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
+public class CounterRotation : UnityEvent<int>
+{
+}
 
 public class TaquinEnigmaManager : Enigma
 {
@@ -15,6 +20,8 @@ public class TaquinEnigmaManager : Enigma
     [SerializeField]
     private int maxMoves;
     private int movesLeft;
+    [SerializeField]
+    public CounterRotation rotateCounters;
     
     private Vector2[] coordsGoals = new Vector2[]
     {
@@ -38,11 +45,13 @@ public class TaquinEnigmaManager : Enigma
     
     private void Start()
     {
-        //FAIRE UN CHECK DES COORDONNES DES TAQUINS POUR LA FIN
-        //GARDER EN MEMOIRE LE POSITIONNEMENT DE BASE
-        
-        
+        CounterTaquin counterTaquin =
+            FindObjectsByType(typeof(CounterTaquin), FindObjectsSortMode.None)[0].GetComponent<CounterTaquin>();
+        if (rotateCounters == null) rotateCounters = new CounterRotation();
+        rotateCounters.AddListener(counterTaquin.RotateCounter);
+
         movesLeft = maxMoves;
+        rotateCounters?.Invoke(movesLeft);
 
         TaquinTile[] tempTiles = FindObjectsOfType<TaquinTile>();
         //oblige de par ca sinon il accepte pas 
@@ -131,6 +140,8 @@ public class TaquinEnigmaManager : Enigma
     public void ValidTaquinPlaced(Vector2 coords)
     {
         movesLeft--;
+        rotateCounters?.Invoke(movesLeft);
+
         // Debug.Log(movesLeft);
         AssignCoordinates(coords);
         
@@ -169,6 +180,7 @@ public class TaquinEnigmaManager : Enigma
         }
         tiles.Remove(coords);
         tiles.Add(targetTaquinTile.coordinates, targetTaquinTile);
+        
         AssignDirections(coords);
     }
 
@@ -215,7 +227,8 @@ public class TaquinEnigmaManager : Enigma
 
         //nombre de coups
         movesLeft = maxMoves;
-
+        rotateCounters?.Invoke(movesLeft);
+        
         heldTaquin = false;
     }
 }
