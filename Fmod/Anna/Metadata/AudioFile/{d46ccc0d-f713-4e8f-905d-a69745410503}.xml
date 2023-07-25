@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d46ccc0d-f713-4e8f-905d-a69745410503}">
+		<property name="assetPath">
+			<value>fast creaking-002.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.43170833333333336</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{79530745-d8f0-4c51-bf33-b4fd37315e8c}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c75a56d5-3403-4417-b0bb-e82c1d585211}">
+		<property name="assetPath">
+			<value>Creaking Rope SOUND EFFECT - Rope creaks SOUNDS Seil knarzen SFX.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>47.386122448979592</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{79530745-d8f0-4c51-bf33-b4fd37315e8c}</destination>
+		</relationship>
+	</object>
+</objects>

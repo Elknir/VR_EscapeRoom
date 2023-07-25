@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f55970ac-f58b-491a-bb49-21d8ff03ae09}">
+		<property name="assetPath">
+			<value>piano chord-002.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.9417708333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{79530745-d8f0-4c51-bf33-b4fd37315e8c}</destination>
+		</relationship>
+	</object>
+</objects>

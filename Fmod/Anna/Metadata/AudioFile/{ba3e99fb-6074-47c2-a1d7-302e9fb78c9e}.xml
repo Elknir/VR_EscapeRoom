@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ba3e99fb-6074-47c2-a1d7-302e9fb78c9e}">
+		<property name="assetPath">
+			<value>Owl Sound Effects.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>41.76979591836735</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{79530745-d8f0-4c51-bf33-b4fd37315e8c}</destination>
+		</relationship>
+	</object>
+</objects>

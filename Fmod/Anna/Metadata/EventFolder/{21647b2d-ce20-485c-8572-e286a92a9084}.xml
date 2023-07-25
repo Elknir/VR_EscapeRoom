@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{21647b2d-ce20-485c-8572-e286a92a9084}">
+		<property name="color">
+			<value>Purple Light 2</value>
+		</property>
+		<property name="name">
+			<value>Bowl</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1844a22c-1a14-495f-89a3-e5e7da1449b9}</destination>
+		</relationship>
+	</object>
+</objects>
