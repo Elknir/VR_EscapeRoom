@@ -8,7 +8,7 @@
 			<value>Man_Pow_Pouring</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{405c5b0f-a8aa-4819-b64b-e2d5411dca5a}</destination>
@@ -33,6 +33,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{d8db7168-644e-4f7f-8314-0a459ac28753}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{297a16c4-91f0-4fa9-ba37-c770ba239ac9}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{c183df71-0b32-4b11-80fc-f5e90ebe3aae}">
@@ -98,7 +101,6 @@
 	<object class="MixerBusEffectChain" id="{90cbfce1-7604-4243-929a-a226a50a723a}">
 		<relationship name="effects">
 			<destination>{3c882051-659e-4cde-b15c-ec6971b61cbb}</destination>
-			<destination>{2fbea219-c525-436c-bb36-f711c5e701e6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{62efd6cc-67f9-4d03-a89a-b7dc9ba77811}" />
@@ -110,6 +112,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{94ba50aa-1614-48d8-a50b-f516b4b44fd6}" />
 	<object class="MixerBusFader" id="{3c882051-659e-4cde-b15c-ec6971b61cbb}" />
-	<object class="SpatialiserEffect" id="{2fbea219-c525-436c-bb36-f711c5e701e6}" />
 	<object class="MixerBusFader" id="{e24b5a42-f496-4a76-a3dd-b838bef39c79}" />
 </objects>

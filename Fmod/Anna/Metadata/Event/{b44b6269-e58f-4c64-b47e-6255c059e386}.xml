@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b44b6269-e58f-4c64-b47e-6255c059e386}">
 		<property name="note">
-			<value>Trigger: Plays when a puzzle piece moves
-Source: The piece</value>
+			<value>Author: Lucas
+Trigger: Plays when a puzzle piece moves
+Source: The piece
+
+Feedback for the moving piece in the puzzle
+
+Reaper: 2 layers + seamless loop</value>
 		</property>
 		<property name="color">
 			<value>Green</value>

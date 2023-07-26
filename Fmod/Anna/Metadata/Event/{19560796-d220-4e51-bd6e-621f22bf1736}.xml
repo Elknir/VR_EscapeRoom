@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{19560796-d220-4e51-bd6e-621f22bf1736}">
 		<property name="color">
-			<value>Yellow</value>
+			<value>Red Light 2</value>
 		</property>
 		<property name="name">
-			<value>Env_Amb_EerieSound</value>
+			<value>Env_Amb_Drones&amp;EerieSounds</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -252,7 +252,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -261,7 +260,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -297,7 +295,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

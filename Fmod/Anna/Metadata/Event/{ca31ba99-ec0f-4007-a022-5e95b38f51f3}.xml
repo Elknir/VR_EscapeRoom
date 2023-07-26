@@ -2,8 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ca31ba99-ec0f-4007-a022-5e95b38f51f3}">
 		<property name="note">
-			<value>Trigger: When the centerpiece of the puzzle is placed
-Source: The piece</value>
+			<value>Author: Lucas
+Trigger: When the centerpiece of the puzzle is placed
+Source: The piece
+
+Small clicking sound as feedback for placing the center piece of the puzzle
+
+Reaper: 2 layers + fx</value>
 		</property>
 		<property name="color">
 			<value>Green</value>

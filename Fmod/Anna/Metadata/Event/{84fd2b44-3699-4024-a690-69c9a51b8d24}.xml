@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{84fd2b44-3699-4024-a690-69c9a51b8d24}">
+		<property name="note">
+			<value>Auteur: Alicia</value>
+		</property>
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green Light 1</value>
 		</property>
 		<property name="name">
 			<value>Man_Pot_Completed</value>
@@ -229,7 +232,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -238,7 +240,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -274,7 +275,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>
