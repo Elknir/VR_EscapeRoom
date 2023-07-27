@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class Dagger : MonoBehaviour
 {
-
     private Collider targetCollider;
     
     private void OnTriggerEnter(Collider other)
     {
-        //A OPTI
         if (other.tag == "DaggerDetector")
         {
             targetCollider = other;
-            
+            Debug.Log("BLEEDING");
             ParticleEnable(other.transform.GetComponent<ParticleSystem>() , true);
         }
     }
@@ -26,8 +24,6 @@ public class Dagger : MonoBehaviour
             ParticleEnable(other.transform.GetComponent<ParticleSystem>() , false);
         }
     }
-
-
 
     protected void ParticleEnable(ParticleSystem particleSystem, bool enable)
     {

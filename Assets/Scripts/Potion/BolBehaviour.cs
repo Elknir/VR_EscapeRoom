@@ -11,15 +11,16 @@ public class BolBehaviour : MonoBehaviour
 
     public Ingredients[] validIngredients;
     private List<Ingredients> ingredientsInPotion = new List<Ingredients>();
-    private bool isNeedingBlood = false, isFinished = false;
+    private bool isNeedingBlood = false;
+    private bool isFinished = false;
     public UnityEvent validPlacement;
 
 
-    // private ParticleSystem particleSystem;
+    private ParticleSystem particleSystem;
 
     private void Start()
     {
-        // particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
+        particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     void OnParticleCollision(GameObject other)
@@ -56,10 +57,12 @@ public class BolBehaviour : MonoBehaviour
             if (!ingredientsInPotion.Contains(targetIngedient))
             {
                 ingredientsInPotion.Add(targetIngedient);
-                    
+                Debug.Log(targetIngedient);
                 if (ingredientsInPotion.Count == validIngredients.Length)
                 {
                     isNeedingBlood = true;
+                    Debug.Log("DONE");
+
                 }
             }
         }

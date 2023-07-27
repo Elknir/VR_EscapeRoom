@@ -1,10 +1,9 @@
 using UnityEngine;
 
 
-public class BookManager : GrabableObjects
+public class BookManager : MonoBehaviour
 {
     [Header("Pages Setup")]
-    
     public GameObject cover, reliure;
     
     
@@ -22,8 +21,7 @@ public class BookManager : GrabableObjects
     
     private int currentPage = 0;
     private BookState currentBookState = BookState.Start;
-
-
+    private bool isHeld = false;
     
     enum BookState
     {
@@ -153,22 +151,22 @@ public class BookManager : GrabableObjects
         Debug.Log($"Current page : {currentPage} , {currentBookState}" );
     }
 
-    public override void HoldItem()
+    public void HoldItem()
     {
-        base.HoldItem();
+        isHeld = true;
         if (currentPage != 0)
         {
             GoToPage(currentPage);
         }
     }
-
-    public override void DropItem()
+    
+    public void DropItem()
     {
-        base.DropItem();
+        isHeld = false;
         CloseBook(Sides.Right, true);
     }
-
-    public override void UseItem()
+    
+    public void UseItem()
     {
         if (isHeld)
         {

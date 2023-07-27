@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class PotionBehaviour : GrabableObjects
 {
     public GameObject top, bot;
@@ -7,8 +9,10 @@ public class PotionBehaviour : GrabableObjects
     private ParticleSystem potionParticleSystem;
     public Ingredients ingredient;
 
+    
     protected virtual void Awake()
     {
+        base.Awake();
         potionParticleSystem = potionParticleObject.GetComponent<ParticleSystem>();
     }
 
@@ -32,10 +36,9 @@ public class PotionBehaviour : GrabableObjects
         }
     }
 
-
-    public override void DropItem()
+    protected override void OnSelectExiting(SelectExitEventArgs args)
     {
-        base.DropItem();
+        base.OnSelectExiting(args);
         ParticleEnable(false);
     }
     
