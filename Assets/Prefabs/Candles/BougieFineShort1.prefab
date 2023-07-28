@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1167620882008973403}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15147, y: 0.15147, z: 0.15147}
+  m_LocalScale: {x: 0.024282157, y: 0.024282157, z: 0.024282157}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1167620883470914654}
@@ -5067,6 +5067,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  objectMaterial: {fileID: 0}
   properties:
     candleSize: 0
     candleGirth: 0
