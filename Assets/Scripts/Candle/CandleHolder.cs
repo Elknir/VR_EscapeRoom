@@ -29,6 +29,7 @@ public class CandleHolder : MonoBehaviour
             Debug.LogError("No candleType script assigned to the socketed candle");
         }
         
+        if(targetCandleScript.objectMaterial) targetCandleScript.objectMaterial.DisableKeyword("_EMISSION");
         CandleProperties candleProperties = targetCandleScript.properties;
         if (properties.Match(candleProperties))
         {

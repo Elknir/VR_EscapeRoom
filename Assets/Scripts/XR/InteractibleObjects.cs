@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class GrabableObjects : XRGrabInteractable
+public class InteractibleObjects : XRBaseInteractable
 {
     protected bool isHeld = false;
     [HideInInspector]
