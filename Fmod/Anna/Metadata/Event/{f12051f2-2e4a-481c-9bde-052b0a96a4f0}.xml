@@ -68,7 +68,11 @@ Reaper: 1 layer per sound + fx</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{63fb02b4-5bac-4c2b-b4dd-698e9ae62844}" />
+	<object class="EventAutomatableProperties" id="{63fb02b4-5bac-4c2b-b4dd-698e9ae62844}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{9d478dd5-7f6e-4e38-afd5-374141a736ec}" />
 	<object class="GroupTrack" id="{cb39d8fd-c475-4277-b2d6-92d2710e4f82}">
 		<relationship name="modules">
@@ -221,7 +225,7 @@ Reaper: 1 layer per sound + fx</value>
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -235,7 +239,7 @@ Reaper: 1 layer per sound + fx</value>
 			<value>Occlusion</value>
 		</property>
 		<property name="value">
-			<value>9.99999997e-07</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,10.000000)}</value>
@@ -246,7 +250,7 @@ Reaper: 1 layer per sound + fx</value>
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>9.99999975e-06</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>

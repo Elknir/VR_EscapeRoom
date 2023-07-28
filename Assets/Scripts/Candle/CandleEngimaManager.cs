@@ -48,7 +48,7 @@ public class CandleEngimaManager : Enigma
             }
         }
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Altar/Altar/Man_Alt_Completed");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Altar/Altar/Man_Alt_Completed",gameObject.transform.position);
     }
     
     public void FindAllCandlesHolders()

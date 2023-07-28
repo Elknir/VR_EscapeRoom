@@ -44,7 +44,7 @@ public class PotionBehaviour : GrabableObjects
     {
         base.OnSelectEntering(args);
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Jar/Man_Jar_PickUp");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Jar/Man_Jar_PickUp", gameObject.transform.position);
     }
 
     protected override void OnSelectExiting(SelectExitEventArgs args)

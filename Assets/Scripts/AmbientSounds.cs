@@ -6,11 +6,11 @@ public class AmbientSounds : MonoBehaviour
 {
 
     private List<Transform> childTransforms;
-    private float timer;
+    [SerializeField] private float timer;
 
-    [SerializeField] private float lowTimerLimit = 25;
-    [SerializeField] private float highTimerLimit = 50;
-    private float currentTimerLimit;
+    [SerializeField] private float lowTimerLimit = 15;
+    [SerializeField] private float highTimerLimit = 30;
+    [SerializeField] private float currentTimerLimit;
 
     private List<string> sounds;
 

@@ -70,7 +70,11 @@ Ajout d'un pitch shifter sur fmod pour la modulation.</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{d522874e-2dbd-491f-8288-b3988a6be0a2}" />
+	<object class="EventAutomatableProperties" id="{d522874e-2dbd-491f-8288-b3988a6be0a2}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{2ce719e3-21eb-497e-a2f2-b4586c167f27}" />
 	<object class="GroupTrack" id="{0de132f0-deea-4bf2-be8e-11f19eda366a}">
 		<relationship name="modules">

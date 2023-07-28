@@ -7,6 +7,6 @@ public class CenterPiece : GrabableObjects
     {
         base.OnSelectEntering(args);
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Taquin/Square/Man_Squ_PickUp");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Taquin/Square/Man_Squ_PickUp", gameObject.transform.position);
     }
 }

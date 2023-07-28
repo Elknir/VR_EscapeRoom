@@ -11,7 +11,7 @@ public class Candle : GrabableObjects
     {
         base.OnSelectEntering(args);
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Altar/Candle/Man_Can_Impact");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Altar/Candle/Man_Can_Impact", gameObject.transform.position);
     }
 
     public void LockInPlace()

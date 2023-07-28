@@ -65,7 +65,11 @@ Peut être jouer en même temps qu'un bruit de grincement de bois (voir Dossier 
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{84791a43-1882-4ba1-86bd-3ac2dce8a82b}" />
+	<object class="EventAutomatableProperties" id="{84791a43-1882-4ba1-86bd-3ac2dce8a82b}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{58a31f10-5919-4ff8-9eab-2f8b26a3f511}" />
 	<object class="GroupTrack" id="{1bb8e6fe-acc2-4af8-9949-5c3c4ee9a82e}">
 		<relationship name="modules">
@@ -246,7 +250,7 @@ Peut être jouer en même temps qu'un bruit de grincement de bois (voir Dossier 
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>

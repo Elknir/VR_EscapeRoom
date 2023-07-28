@@ -68,7 +68,11 @@ Reaper: 1 layer per sound + fx</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{400159e4-2076-4c90-814a-3fcac25c19ce}" />
+	<object class="EventAutomatableProperties" id="{400159e4-2076-4c90-814a-3fcac25c19ce}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{1f648d10-263f-4fad-a8a7-c4a209cf459d}" />
 	<object class="GroupTrack" id="{87fd07b9-d17a-444a-a474-34ecb969f782}">
 		<relationship name="modules">
@@ -230,7 +234,7 @@ Reaper: 1 layer per sound + fx</value>
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>

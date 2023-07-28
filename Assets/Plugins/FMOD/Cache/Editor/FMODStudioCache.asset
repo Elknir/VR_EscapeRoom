@@ -25,7 +25,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 230
 --- !u!114 &-8307871880233017207
 MonoBehaviour:
@@ -79,7 +79,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1500
 --- !u!114 &-6634380237275438571
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1000
 --- !u!114 &-4427811265558385790
 MonoBehaviour:
@@ -241,7 +241,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 4000
 --- !u!114 &-3747074496133296894
 MonoBehaviour:
@@ -322,7 +322,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1376
 --- !u!114 &-2975846195377299470
 MonoBehaviour:
@@ -376,7 +376,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 731
 --- !u!114 &-2416423347546535313
 MonoBehaviour:
@@ -403,7 +403,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 3422
 --- !u!114 &-2347852765299476585
 MonoBehaviour:
@@ -420,7 +420,7 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638261662340902527
+  lastModified: 638261674201658224
   FileSizes:
   - Name: Desktop
     Value: 3048672
@@ -450,7 +450,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 3316
 --- !u!114 &-1235999087237153878
 MonoBehaviour:
@@ -477,7 +477,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 864
 --- !u!114 &-1025377721373798642
 MonoBehaviour:
@@ -531,7 +531,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 620
 --- !u!114 &-400493641553200416
 MonoBehaviour:
@@ -558,7 +558,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1040
 --- !u!114 &11400000
 MonoBehaviour:
@@ -621,7 +621,7 @@ MonoBehaviour:
   - {fileID: -2347852765299476585}
   StringsBanks:
   - {fileID: 2426439398291005046}
-  cacheTime: 638261662340947904
+  cacheTime: 638261674201703325
   cacheVersion: 131603
 --- !u!114 &444020142788997876
 MonoBehaviour:
@@ -648,7 +648,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 4601
 --- !u!114 &597638803188928349
 MonoBehaviour:
@@ -675,7 +675,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 683
 --- !u!114 &868593004535338032
 MonoBehaviour:
@@ -702,7 +702,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1940
 --- !u!114 &1055138103481071682
 MonoBehaviour:
@@ -773,7 +773,7 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638261662340947904
+  lastModified: 638261674201703325
   FileSizes:
   - Name: Desktop
     Value: 2818
@@ -803,7 +803,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 7700
 --- !u!114 &3298014856235478949
 MonoBehaviour:
@@ -857,7 +857,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 2800
 --- !u!114 &4776270434666140572
 MonoBehaviour:
@@ -884,7 +884,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 2480
 --- !u!114 &4878015182267502628
 MonoBehaviour:
@@ -911,7 +911,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 2200
 --- !u!114 &5278083852972657203
 MonoBehaviour:
@@ -938,7 +938,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 4246
 --- !u!114 &5596167337253606054
 MonoBehaviour:
@@ -965,7 +965,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 381
 --- !u!114 &6183949284149786235
 MonoBehaviour:
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 50
 --- !u!114 &7540846946840633860
 MonoBehaviour:
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 4500
 --- !u!114 &7709836264477792371
 MonoBehaviour:
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 992
 --- !u!114 &8452279393672550120
 MonoBehaviour:
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 1563
 --- !u!114 &9015491610529111243
 MonoBehaviour:
