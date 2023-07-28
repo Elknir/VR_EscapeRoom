@@ -420,10 +420,10 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638261587121549273
+  lastModified: 638261662340902527
   FileSizes:
   - Name: Desktop
-    Value: 3013568
+    Value: 3048672
   Exists: 1
 --- !u!114 &-1539719525627506994
 MonoBehaviour:
@@ -621,7 +621,7 @@ MonoBehaviour:
   - {fileID: -2347852765299476585}
   StringsBanks:
   - {fileID: 2426439398291005046}
-  cacheTime: 638261587121595158
+  cacheTime: 638261662340947904
   cacheVersion: 131603
 --- !u!114 &444020142788997876
 MonoBehaviour:
@@ -773,7 +773,7 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638261587121595158
+  lastModified: 638261662340947904
   FileSizes:
   - Name: Desktop
     Value: 2818
@@ -912,7 +912,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2200
 --- !u!114 &5278083852972657203
 MonoBehaviour:
   m_ObjectHideFlags: 0

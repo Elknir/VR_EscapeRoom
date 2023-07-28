@@ -70,6 +70,7 @@ public class BookManager : MonoBehaviour
 
     void UpdatePage(Sides turnSide)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Grimoire/Man_Gri_PageTurn", gameObject.transform.position);
         switch (turnSide)
         {
             case Sides.Left:
@@ -159,7 +160,7 @@ public class BookManager : MonoBehaviour
             GoToPage(currentPage);
         }
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Grimoire/Man_Gri_PickUp");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Grimoire/Man_Gri_PickUp", gameObject.transform.position);
     }
     
     public void DropItem()

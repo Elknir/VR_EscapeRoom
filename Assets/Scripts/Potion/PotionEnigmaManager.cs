@@ -21,7 +21,5 @@ public class PotionEnigmaManager : Enigma
         
         var container =FindObjectsOfType<ContainerBehaviour>();;
         container[0].isFinised = true;
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Potion/Man_Pot_Completed");
     }
 }

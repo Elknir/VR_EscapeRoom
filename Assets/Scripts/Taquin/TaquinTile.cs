@@ -74,7 +74,7 @@ public class TaquinTile : XRBaseInteractable
         tileDropped.AddListener(taquinEnigmaManager.TileDropped);
         validPlacement.AddListener(taquinEnigmaManager.ValidTaquinPlaced);
 
-        fmodEvent = FMODUnity.RuntimeManager.CreateInstance("event:/Manipulation/Taquin/Square/Man_Squ_Move");
+        fmodEvent = FMODUnity.RuntimeManager.CreateInstance("event:/Manipulation/Taquin/Square/Man_Squ_Moving");
     }
     
     public void HoldItem()
@@ -87,8 +87,8 @@ public class TaquinTile : XRBaseInteractable
     public void DropItem()
     {
         isHolding = false;
-        
-        
+        fmodEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
         switch (movingDirection)
         {
             case DirectionEnum.Down:
@@ -131,10 +131,7 @@ public class TaquinTile : XRBaseInteractable
                     transform.position = lockedPosition;
                 }
                 break;
-        }
-
-        fmodEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        
+        }      
     }
             
 

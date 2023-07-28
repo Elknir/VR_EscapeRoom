@@ -62,7 +62,7 @@ public class BolBehaviour : MonoBehaviour
                 {
                     isNeedingBlood = true;
                     Debug.Log("DONE");
-
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Potion/Man_Pot_Completed", gameObject.transform.position);
                 }
             }
         }
@@ -70,6 +70,7 @@ public class BolBehaviour : MonoBehaviour
         {
             //Faire un reset
             ingredientsInPotion.Clear();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Potion/Man_Pot_Failed", gameObject.transform.position);
         }
     }
 
@@ -77,5 +78,6 @@ public class BolBehaviour : MonoBehaviour
     private void BloodLogic()
     {
         validPlacement.Invoke();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Potion/Man_Pot_Completed", gameObject.transform.position);
     }
 }
