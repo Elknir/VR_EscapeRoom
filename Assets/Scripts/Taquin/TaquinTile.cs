@@ -44,6 +44,9 @@ public class TaquinTile : XRBaseInteractable
     //POUR LE CHECKING FAUT : UN GOAL COORDS
     [HideInInspector]
     public Vector2 goalCoords;
+
+    //SOUND
+    private FMOD.Studio.EventInstance fmodEvent;
     
     protected override void Awake()
     {
@@ -71,11 +74,14 @@ public class TaquinTile : XRBaseInteractable
         tileDropped.AddListener(taquinEnigmaManager.TileDropped);
         validPlacement.AddListener(taquinEnigmaManager.ValidTaquinPlaced);
 
+        fmodEvent = FMODUnity.RuntimeManager.CreateInstance("event:/Manipulation/Taquin/Square/Man_Squ_Move");
     }
     
     public void HoldItem()
     {
         isHolding = true;
+        fmodEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        fmodEvent.start();
     }
 
     public void DropItem()
@@ -126,6 +132,8 @@ public class TaquinTile : XRBaseInteractable
                 }
                 break;
         }
+
+        fmodEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         
     }
             

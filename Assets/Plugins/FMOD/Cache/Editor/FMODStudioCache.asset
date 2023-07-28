@@ -22,11 +22,65 @@ MonoBehaviour:
   - {fileID: -2347852765299476585}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 230
+--- !u!114 &-8307871880233017207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Jar/Man_Jar_Opening
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Jar/Man_Jar_Opening
+  Guid:
+    Data1: -1657131770
+    Data2: 1087739545
+    Data3: 954833537
+    Data4: -482903378
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6978881479409836836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Bowl/Man_Bowl_Impact
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Bowl/Man_Bowl_Impact
+  Guid:
+    Data1: 1378835825
+    Data2: 1103724075
+    Data3: 1651749558
+    Data4: -1527788039
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-6634380237275438571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +108,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1100
+--- !u!114 &-6587199923389247446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Taquin/Man_Taq_ResetButton
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Taquin/Man_Taq_ResetButton
+  Guid:
+    Data1: -453323174
+    Data2: 1193665540
+    Data3: -1724647778
+    Data4: 1264190839
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6446062601400987834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Taquin/Man_Taq_Reset
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Taquin/Man_Taq_Reset
+  Guid:
+    Data1: -1759245922
+    Data2: 1311618569
+    Data3: -1867324751
+    Data4: 1696126615
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5416509740273078339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/Interior/Env_Int_ShakingFurniture
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/Interior/Env_Int_ShakingFurniture
+  Guid:
+    Data1: 752298911
+    Data2: 1301835451
+    Data3: 1859591344
+    Data4: 1657981683
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4698843350762661597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +242,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 100
+  Length: 4000
+--- !u!114 &-3747074496133296894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/Ambiance/Env_Amb_Drones&EerieSounds
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/Ambiance/Env_Amb_Drones&EerieSounds
+  Guid:
+    Data1: 425068438
+    Data2: 1313985056
+    Data3: 526544573
+    Data4: 907525922
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25285
 --- !u!114 &-3604623876606911141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +297,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 41769
+--- !u!114 &-3284170420035821998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Jar/Man_Jar_PickUp
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Jar/Man_Jar_PickUp
+  Guid:
+    Data1: -684283925
+    Data2: 1227911674
+    Data3: 675129743
+    Data4: 687382872
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1376
+--- !u!114 &-2975846195377299470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Powder/Man_Pow_Grabbed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Powder/Man_Pow_Grabbed
+  Guid:
+    Data1: -2006522381
+    Data2: 1215443061
+    Data3: -579887183
+    Data4: -2117164289
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-2638521353989044602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +377,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 731
 --- !u!114 &-2416423347546535313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,13 +398,13 @@ MonoBehaviour:
     Data4: 1048931326
   Banks:
   - {fileID: -2347852765299476585}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2500
+  Length: 3422
 --- !u!114 &-2347852765299476585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,11 +420,38 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638259175197229260
+  lastModified: 638261587121549273
   FileSizes:
   - Name: Desktop
-    Value: 3085120
+    Value: 3013568
   Exists: 1
+--- !u!114 &-1539719525627506994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Potion/Man_Pot_Failed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Potion/Man_Pot_Failed
+  Guid:
+    Data1: 1658130409
+    Data2: 1319278418
+    Data3: 313797021
+    Data4: 952467758
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3316
 --- !u!114 &-1235999087237153878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +479,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 864
+--- !u!114 &-1025377721373798642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/Interior/Env_Int_OpeningFurniture
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/Interior/Env_Int_OpeningFurniture
+  Guid:
+    Data1: 1159084475
+    Data2: 1255053600
+    Data3: 1047992750
+    Data4: -867627649
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-756638173857581278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,13 +526,13 @@ MonoBehaviour:
     Data4: -1311477382
   Banks:
   - {fileID: -2347852765299476585}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 14602
+  Length: 620
 --- !u!114 &-400493641553200416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +559,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 1040
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +585,6 @@ MonoBehaviour:
   - {fileID: 5596167337253606054}
   - {fileID: 2527582287545846900}
   - {fileID: -1235999087237153878}
-  - {fileID: 6470396159143198783}
   - {fileID: -8576286383652139071}
   - {fileID: 8598310896836790372}
   - {fileID: -3604623876606911141}
@@ -324,13 +593,90 @@ MonoBehaviour:
   - {fileID: 7709836264477792371}
   - {fileID: -4427811265558385790}
   - {fileID: 1055138103481071682}
+  - {fileID: -8307871880233017207}
+  - {fileID: 5278083852972657203}
+  - {fileID: 6779172789055974032}
+  - {fileID: 9015491610529111243}
+  - {fileID: 444020142788997876}
+  - {fileID: -6587199923389247446}
+  - {fileID: 3298014856235478949}
+  - {fileID: 4776270434666140572}
+  - {fileID: 8452279393672550120}
+  - {fileID: -6978881479409836836}
+  - {fileID: -3747074496133296894}
+  - {fileID: 597638803188928349}
+  - {fileID: 4878015182267502628}
+  - {fileID: -6446062601400987834}
+  - {fileID: 6183949284149786235}
+  - {fileID: -5416509740273078339}
+  - {fileID: 2145973861013580971}
+  - {fileID: -1025377721373798642}
+  - {fileID: 7540846946840633860}
+  - {fileID: -1539719525627506994}
+  - {fileID: -3284170420035821998}
+  - {fileID: -2975846195377299470}
+  - {fileID: 7906143621999425628}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2347852765299476585}
   StringsBanks:
   - {fileID: 2426439398291005046}
-  cacheTime: 638259175197238963
+  cacheTime: 638261587121595158
   cacheVersion: 131603
+--- !u!114 &444020142788997876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Potion/Man_Pot_Completed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Potion/Man_Pot_Completed
+  Guid:
+    Data1: -2063783100
+    Data2: 1076115097
+    Data3: -915828570
+    Data4: 613227429
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4601
+--- !u!114 &597638803188928349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Square/Man_Squ_Placed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Square/Man_Squ_Placed
+  Guid:
+    Data1: -902710631
+    Data2: 1074261007
+    Data3: -1788992864
+    Data4: -212758605
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 683
 --- !u!114 &868593004535338032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +703,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 1940
 --- !u!114 &1055138103481071682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +731,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5929
+--- !u!114 &2145973861013580971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/Ambiance/Env_Amb_Energy
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/Ambiance/Env_Amb_Energy
+  Guid:
+    Data1: 463702691
+    Data2: 1319985756
+    Data3: -1763885173
+    Data4: -334486359
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2426439398291005046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,10 +773,10 @@ MonoBehaviour:
   Path: Fmod/Anna/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638259175197238963
+  lastModified: 638261587121595158
   FileSizes:
   - Name: Desktop
-    Value: 1716
+    Value: 2818
   Exists: 1
 --- !u!114 &2527582287545846900
 MonoBehaviour:
@@ -432,6 +805,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 7700
+--- !u!114 &3298014856235478949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Powder/Man_Pow_Pouring
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Powder/Man_Pow_Pouring
+  Guid:
+    Data1: -263348130
+    Data2: 1089830335
+    Data3: -2126266218
+    Data4: 1983024831
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4514561125459625425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +859,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2800
+--- !u!114 &4776270434666140572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Square/Man_Squ_Moving
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Square/Man_Squ_Moving
+  Guid:
+    Data1: -1270128023
+    Data2: 1281680783
+    Data3: 1432518324
+    Data4: -2031920704
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2480
+--- !u!114 &4878015182267502628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Taquin/Man_Taq_Failed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Taquin/Man_Taq_Failed
+  Guid:
+    Data1: 19540125
+    Data2: 1153412609
+    Data3: -1005859711
+    Data4: 467137151
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5278083852972657203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Bowl/Man_Bowl_Mixing
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Bowl/Man_Bowl_Mixing
+  Guid:
+    Data1: -137059558
+    Data2: 1290304897
+    Data3: 1781500585
+    Data4: -1009407415
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4246
 --- !u!114 &5596167337253606054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +967,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 381
---- !u!114 &6470396159143198783
+--- !u!114 &6183949284149786235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,23 +977,77 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Environment/Ambiance/Env_Amb_EerieSound
+  m_Name: event:/Manipulation/Powder/Man_Pow_Completed
   m_EditorClassIdentifier: 
-  Path: event:/Environment/Ambiance/Env_Amb_EerieSound
+  Path: event:/Manipulation/Powder/Man_Pow_Completed
   Guid:
-    Data1: 425068438
-    Data2: 1313985056
-    Data3: 526544573
-    Data4: 907525922
+    Data1: -1642232418
+    Data2: 1339261434
+    Data3: 757974442
+    Data4: -1858132320
   Banks:
   - {fileID: -2347852765299476585}
-  IsStream: 1
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6779172789055974032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Square/Man_Squ_PickUp
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Square/Man_Squ_PickUp
+  Guid:
+    Data1: 764156187
+    Data2: 1302172702
+    Data3: -636382017
+    Data4: 1239484197
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 25285
+  Length: 50
+--- !u!114 &7540846946840633860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Cabinet/Man_Cab_Opening
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Cabinet/Man_Cab_Opening
+  Guid:
+    Data1: -518731557
+    Data2: 1340666759
+    Data3: -256051308
+    Data4: -790774842
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
 --- !u!114 &7709836264477792371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +1075,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4000
+--- !u!114 &7906143621999425628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Grimoire/Man_Gri_PickUp
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Grimoire/Man_Gri_PickUp
+  Guid:
+    Data1: -1515048964
+    Data2: 1134160379
+    Data3: 95722401
+    Data4: 202121167
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992
+--- !u!114 &8452279393672550120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Taquin/Taquin/Man_Taq_Completed
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Taquin/Taquin/Man_Taq_Completed
+  Guid:
+    Data1: 720677225
+    Data2: 1315522667
+    Data3: 2110051246
+    Data4: 1958520428
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8598310896836790372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,3 +1156,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1563
+--- !u!114 &9015491610529111243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Manipulation/Potion/Jar/Man_Jar_Impact
+  m_EditorClassIdentifier: 
+  Path: event:/Manipulation/Potion/Jar/Man_Jar_Impact
+  Guid:
+    Data1: 296778016
+    Data2: 1120514778
+    Data3: 1553846691
+    Data4: -859214282
+  Banks:
+  - {fileID: -2347852765299476585}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

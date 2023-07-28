@@ -158,6 +158,8 @@ public class BookManager : MonoBehaviour
         {
             GoToPage(currentPage);
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Grimoire/Man_Gri_PickUp");
     }
     
     public void DropItem()

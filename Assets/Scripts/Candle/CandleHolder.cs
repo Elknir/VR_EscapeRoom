@@ -35,6 +35,8 @@ public class CandleHolder : MonoBehaviour
         {
             validPlacement.Invoke();
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Altar/Altar/Man_Alt_LitUp");
     }
 
     private void Update()
