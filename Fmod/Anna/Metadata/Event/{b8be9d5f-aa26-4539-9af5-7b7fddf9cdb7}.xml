@@ -67,7 +67,11 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{405c6539-c40f-4ffe-991c-6f4f2e48e0a7}" />
+	<object class="EventAutomatableProperties" id="{405c6539-c40f-4ffe-991c-6f4f2e48e0a7}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{8a595563-fc61-4a8e-a292-8d2c18895f7b}" />
 	<object class="GroupTrack" id="{a35fd959-6c24-4b9f-832e-9a97825256dc}">
 		<relationship name="modules">
@@ -211,7 +215,7 @@ Ajout d'un pitch shifter sur FMOD pour la modulation du pitch</value>
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>

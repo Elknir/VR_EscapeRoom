@@ -62,7 +62,11 @@
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{f8f29d8b-e7c9-4857-ae78-bf15b7fbadc2}" />
+	<object class="EventAutomatableProperties" id="{f8f29d8b-e7c9-4857-ae78-bf15b7fbadc2}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{6a2978f5-ccf5-423d-989b-9ed1d298d9df}" />
 	<object class="GroupTrack" id="{e9263654-08e3-4699-943d-b522b92ea053}">
 		<relationship name="modules">
@@ -75,6 +79,9 @@
 	<object class="Timeline" id="{20e38967-f5f6-447a-85fc-7bfa4a9886ac}">
 		<relationship name="modules">
 			<destination>{c7841653-273a-4d5a-9b17-0e3772f3ad56}</destination>
+		</relationship>
+		<relationship name="markers">
+			<destination>{f3d74b8c-8fc6-45fa-8481-36e003e70cb0}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{f431b2dc-f13f-4187-8d5f-430f02b9b8f3}">
@@ -96,7 +103,10 @@
 	<object class="MixerBusPanner" id="{84383540-13eb-4041-a051-68a4579e6103}" />
 	<object class="SingleSound" id="{c7841653-273a-4d5a-9b17-0e3772f3ad56}">
 		<property name="length">
-			<value>1.3761041666666667</value>
+			<value>0.62</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{0f2ec2c8-d390-4261-a555-2512beba091b}</destination>
@@ -117,6 +127,20 @@
 		</relationship>
 		<relationship name="output">
 			<destination>{f431b2dc-f13f-4187-8d5f-430f02b9b8f3}</destination>
+		</relationship>
+	</object>
+	<object class="LoopRegion" id="{f3d74b8c-8fc6-45fa-8481-36e003e70cb0}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="length">
+			<value>0.62</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{20e38967-f5f6-447a-85fc-7bfa4a9886ac}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{6a2978f5-ccf5-423d-989b-9ed1d298d9df}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{0682a61e-059d-4d5e-a23c-497ee3442bd0}">
@@ -186,7 +210,7 @@
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -232,7 +256,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -241,7 +264,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -277,7 +299,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

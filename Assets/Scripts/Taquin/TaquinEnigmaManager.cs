@@ -134,6 +134,8 @@ public class TaquinEnigmaManager : Enigma
         var centerTaquinHolder =FindObjectsOfType<CenterTaquinHolder>();;
         if (centerTaquinHolder.Length == 0) return;
         centerTaquinHolder[0].gameObject.GetComponent<XRSocketInteractor>().socketActive = true;
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Taquin/Cabinet/Man_Cab_Opening", gameObject.transform.position);
     }
 
 
@@ -151,6 +153,7 @@ public class TaquinEnigmaManager : Enigma
         if (movesLeft <= 0)
         { 
             ResetTaquinPostions();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Taquin/Taquin/Man_Taq_Reset", gameObject.transform.position);
         }
         
     }

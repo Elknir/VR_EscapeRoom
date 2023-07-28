@@ -62,7 +62,11 @@
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{fa61dc84-c79d-44c7-8499-56fa0dd4a380}" />
+	<object class="EventAutomatableProperties" id="{fa61dc84-c79d-44c7-8499-56fa0dd4a380}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{67046b11-6a08-435e-b6b8-96167159747f}" />
 	<object class="GroupTrack" id="{71793588-da9a-41f6-b2df-079393877b4f}">
 		<relationship name="modules">
@@ -186,7 +190,7 @@
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>

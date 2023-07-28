@@ -69,7 +69,11 @@ Ajout d'un pitch shifter sur Fmod pour la modulation</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{72977121-fc2a-4503-9b6e-b8c170a607ba}" />
+	<object class="EventAutomatableProperties" id="{72977121-fc2a-4503-9b6e-b8c170a607ba}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{9f84bceb-bcf9-419a-a2e3-3f1f8550e3c0}" />
 	<object class="GroupTrack" id="{ece4608c-6a41-42c6-acda-27a980506a98}">
 		<relationship name="modules">
@@ -204,7 +208,7 @@ Ajout d'un pitch shifter sur Fmod pour la modulation</value>
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -250,7 +254,6 @@ Ajout d'un pitch shifter sur Fmod pour la modulation</value>
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -259,7 +262,6 @@ Ajout d'un pitch shifter sur Fmod pour la modulation</value>
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -295,7 +297,6 @@ Ajout d'un pitch shifter sur Fmod pour la modulation</value>
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

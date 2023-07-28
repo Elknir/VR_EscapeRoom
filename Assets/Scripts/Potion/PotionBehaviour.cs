@@ -9,11 +9,15 @@ public class PotionBehaviour : GrabableObjects
     private ParticleSystem potionParticleSystem;
     public Ingredients ingredient;
 
+    private FMOD.Studio.EventInstance fmodEvent;
+
     
     protected virtual void Awake()
     {
         base.Awake();
         potionParticleSystem = potionParticleObject.GetComponent<ParticleSystem>();
+
+        fmodEvent = FMODUnity.RuntimeManager.CreateInstance("event:/Manipulation/Potion/Jar/Man_Jar_Pouring");
     }
 
     private void Update()
@@ -36,6 +40,13 @@ public class PotionBehaviour : GrabableObjects
         }
     }
 
+    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntering(args);
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Potion/Jar/Man_Jar_PickUp", gameObject.transform.position);
+    }
+
     protected override void OnSelectExiting(SelectExitEventArgs args)
     {
         base.OnSelectExiting(args);
@@ -50,6 +61,8 @@ public class PotionBehaviour : GrabableObjects
             isActive = true;
             potionParticleSystem.Play();
             DisablePlug(false);
+            fmodEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            fmodEvent.start();
         }
         else
         {
@@ -57,6 +70,7 @@ public class PotionBehaviour : GrabableObjects
             potionParticleSystem.Stop();
             potionParticleSystem.Clear();
             DisablePlug(true);
+            fmodEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 

@@ -62,7 +62,11 @@
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{41d4d839-2686-41b8-b335-661c815beed7}" />
+	<object class="EventAutomatableProperties" id="{41d4d839-2686-41b8-b335-661c815beed7}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{1190b061-5751-4c34-b8d6-95f063d92461}" />
 	<object class="GroupTrack" id="{1acd59ed-dd49-47cc-81a5-27d699cf1e9f}">
 		<relationship name="modules">
@@ -183,7 +187,7 @@
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -229,7 +233,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -238,7 +241,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -274,7 +276,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

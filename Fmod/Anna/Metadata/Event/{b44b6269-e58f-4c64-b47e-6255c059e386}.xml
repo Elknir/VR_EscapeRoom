@@ -68,7 +68,11 @@ Reaper: 2 layers + seamless loop</value>
 			<destination>{090074ed-8899-4256-9a68-1b3eaa02e121}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{378f561a-69fd-44d9-b69a-1af8c6393123}" />
+	<object class="EventAutomatableProperties" id="{378f561a-69fd-44d9-b69a-1af8c6393123}">
+		<property name="maximumDistance">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{422e26e1-ddda-4823-b619-fab0077982ff}" />
 	<object class="GroupTrack" id="{f13bd02f-b953-490a-87cc-e7143fda2633}">
 		<relationship name="modules">
@@ -215,7 +219,7 @@ Reaper: 2 layers + seamless loop</value>
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
