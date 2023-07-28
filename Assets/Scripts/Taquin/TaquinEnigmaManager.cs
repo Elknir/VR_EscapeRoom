@@ -136,6 +136,8 @@ public class TaquinEnigmaManager : Enigma
         centerTaquinHolder[0].gameObject.GetComponent<XRSocketInteractor>().socketActive = true;
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/Manipulation/Taquin/Cabinet/Man_Cab_Opening", gameObject.transform.position);
+        
+
     }
 
 

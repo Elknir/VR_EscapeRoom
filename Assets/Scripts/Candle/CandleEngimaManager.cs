@@ -15,6 +15,7 @@ public class CandleEngimaManager : Enigma
     public void ValidCandlePlaced()
     {
         currentValidCandles++;
+        Debug.Log(currentValidCandles);
         CheckEnigmaValidation(currentEnigma);
     }
 

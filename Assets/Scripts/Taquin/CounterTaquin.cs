@@ -12,8 +12,6 @@ public class CounterTaquin : MonoBehaviour
 
     public void RotateCounter(int displayedNumber)
     {
-        Debug.Log(displayedNumber);
-
         int[] digits = displayedNumber.ToString().Select(t=>int.Parse(t.ToString())).ToArray();
         
         if (digits.Length > 1)

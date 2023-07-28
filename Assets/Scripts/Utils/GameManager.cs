@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool cheatTaquin, cheatPotion, cheatCandles, cheatTaquinMiddle, cheatPotionOnBody;
     private bool validateTaquin, validatePotion, validateCandles, validateTaquinMiddle, validatePotionOnBody;
+    public ParticleSystem[] particleSystem;
 
     public void Start()
     {
@@ -17,46 +18,55 @@ public class GameManager : MonoBehaviour
         if(cheatPotionOnBody) EmitSignal(EnigmaEnum.PotionOnBody);
     }
     
+
+    
     public void ReciveSignal(EnigmaEnum targetEngima, Action validateCallBack)
     {
         switch(targetEngima) 
         {
             case EnigmaEnum.Taquin:
                 Debug.Log("GG ! T'as fini l'épreuve du taquin !");
-                //Ouvrir le tiroir de la dague sacrificielle
                 validateTaquin = true;
                 validateCallBack();
-                //Posiblement faire apparaitre les objets
+                
+                particleSystem[2].Clear();
+                particleSystem[2].Stop();
+                particleSystem[2].Play();
                 break;
             case EnigmaEnum.Potion:
                 Debug.Log("GG ! T'as fini l'épreuve des potions !");
-                //Doit être validé une fois que le joueur a mis la potion de vie sur la fille
                 validatePotion = true;
                 validateCallBack();
-                //Faire un truc spécifique?
+                
+                particleSystem[0].Clear();
+                particleSystem[0].Stop();
+                particleSystem[0].Play();
                 break;
             case EnigmaEnum.Candles:
                 Debug.Log("GG ! T'as fini l'épreuve des bougies !");
                 validateCandles = true;
                 validateCallBack();
+                particleSystem[1].Clear();
+                particleSystem[1].Stop();
+                particleSystem[1].Play();
                 break;
             case EnigmaEnum.TaquinMiddle:
                 Debug.Log("GG ! T'as fini l'épreuve du TaquinMiddle !");
-                //Si potion de vie finie faire apparaitre la page du grimoire
                 validateTaquinMiddle = true;
                 validateCallBack();
+                
+                particleSystem[2].Clear();
+                particleSystem[2].Stop();
+                particleSystem[2].Play();
                 break;
             case EnigmaEnum.PotionOnBody:
                 Debug.Log("GG ! T'as fini l'épreuve de la PotionOnBody !");
-                // if (validateTaquin && validatePotion && validateCandles && validateTaquinMiddle)
-                // {
-                //     
-                // }
                 validatePotionOnBody = true;
                 validateCallBack();
-                //Bruler le Grimoire
-                //Faire Apparaitre le démon
-                //Puis fin du jeu?
+                
+                particleSystem[1].Clear();
+                particleSystem[1].Stop();
+                particleSystem[1].Play();
                 break;
         }
     }

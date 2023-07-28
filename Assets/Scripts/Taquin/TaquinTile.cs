@@ -47,6 +47,9 @@ public class TaquinTile : XRBaseInteractable
 
     //SOUND
     private FMOD.Studio.EventInstance fmodEvent;
+    [HideInInspector]
+    public Material objectMaterial;
+    
     
     protected override void Awake()
     {
@@ -54,6 +57,8 @@ public class TaquinTile : XRBaseInteractable
         lockedPosition = transform.position;
 
         myRenderer = GetComponent<Renderer>();
+        objectMaterial = GetComponent<Renderer>().material;
+
 
         TaquinEnigmaManager taquinEnigmaManager =
             FindObjectsByType(typeof(TaquinEnigmaManager), FindObjectsSortMode.None)[0].GetComponent<TaquinEnigmaManager>();
@@ -88,6 +93,8 @@ public class TaquinTile : XRBaseInteractable
     {
         isHolding = false;
         fmodEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        if(objectMaterial) objectMaterial.DisableKeyword("_EMISSION");
+
 
         switch (movingDirection)
         {
@@ -149,11 +156,16 @@ public class TaquinTile : XRBaseInteractable
 
     private void Update()
     {
+        //Fonctionne mais on peut opti
+        if (movingDirection == DirectionEnum.None)
+        {
+            if(objectMaterial) objectMaterial.DisableKeyword("_EMISSION");
+        }
         
-        //FAIRE TOUTES LES DIRECTIONS
-        //FAIRE LA ROTATION EN X
         if(movingDirection == DirectionEnum.None || !isHolding || IsHandToFar()) return;
 
+        //FAIRE TOUTES LES DIRECTIONS
+        //FAIRE LA ROTATION EN X
         Vector3 HandPosition = targetHand.transform.position;
         switch (movingDirection)
         {
@@ -205,13 +217,48 @@ public class TaquinTile : XRBaseInteractable
         base.OnSelectEntering(args);
         targetHand = args.interactorObject.transform.gameObject;
         tileGrabbed.Invoke(() => {HoldItem();});
-        
+        if(objectMaterial) objectMaterial.DisableKeyword("_EMISSION");
     }
+    
+    // protected override void OnSelectEntering(SelectEnterEventArgs args)
+    // {
+    //     base.OnSelectEntering(args);
+    // }
+
+    // protected override void OnSelectExiting(SelectExitEventArgs args)
+    // {
+    //     base.OnSelectExiting(args);
+    //    
+    // }
+
+
 
     protected override void OnSelectExiting(SelectExitEventArgs args)
     {
         base.OnSelectExiting(args);
         tileDropped.Invoke(() => {DropItem();});
+        
+        if (objectMaterial && movingDirection != DirectionEnum.None)
+        {
+            objectMaterial.EnableKeyword("_EMISSION");
+            objectMaterial.SetColor ("_EmissionColor", Color.green);
+        }
+
+    }
+    protected override void OnHoverEntering(HoverEnterEventArgs args)
+    {
+        base.OnHoverEntering(args);
+        if (objectMaterial && movingDirection != DirectionEnum.None)
+        {
+            objectMaterial.EnableKeyword("_EMISSION");
+            objectMaterial.SetColor ("_EmissionColor", Color.green);
+        }
+    }
+
+    protected override void OnHoverExiting(XRBaseInteractor interactor)
+    {
+        base.OnHoverExiting(interactor);
+        if(objectMaterial) objectMaterial.DisableKeyword("_EMISSION");
     }
 
     private void LockTile()
@@ -239,8 +286,6 @@ public class TaquinTile : XRBaseInteractable
         validPlacement?.Invoke(coordinates);
         
         lockedPosition = transform.position;
-        
-
     }
     
     private Vector3 Convert(Vector3 targetVector)

@@ -22,14 +22,24 @@ public class GrabableObjects : XRGrabInteractable
     protected override void OnSelectExiting(SelectExitEventArgs args)
     {
         base.OnSelectExiting(args);
-        if(objectMaterial ) objectMaterial.EnableKeyword("_EMISSION");
+        if (objectMaterial)
+        {
+            objectMaterial.EnableKeyword("_EMISSION");
+            objectMaterial.SetColor ("_EmissionColor", Color.green);
+        }
+
+        
         isHeld = false;
     }
 
     protected override void OnHoverEntering(HoverEnterEventArgs args)
     {
         base.OnHoverEntering(args);
-        if(objectMaterial ) objectMaterial.EnableKeyword("_EMISSION");
+        if (objectMaterial)
+        {
+            objectMaterial.EnableKeyword("_EMISSION");
+            objectMaterial.SetColor ("_EmissionColor", Color.green);
+        }
     }
 
     protected override void OnHoverExiting(XRBaseInteractor interactor)
